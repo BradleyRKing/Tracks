@@ -1,4 +1,100 @@
+$base-colour: #8f63aa;
+$neon-dark: #8f63aa;
+$neon-light: #ab65da;
+
 body {
     background-color: black;
     color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 7em;
+    font-family: 'Bungee Outline';
+    margin: 0;
+    padding: 0
+}
+
+h2 {
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Bungee Hairline';
+    margin: 0;
+    padding: 0
+}
+
+u {
+    text-decoration: underline;
+    -webkit-text-decoration-color: $base-colour;
+    /* Safari */
+    text-decoration-color: $base-colour;
+}
+
+iframe {
+    display: block;
+    margin: 50px auto;
+    color: black;
+}
+
+.centre-wrapper {
+    text-align: center;
+}
+
+button {
+    background-color: $base-colour;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 20px;
+    border-radius: 5px;
+    border: 2px solid $base-colour;
+    cursor: pointer;
+
+    span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+
+        &:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+        }
+    }
+
+    &:hover span {
+        background-color: $base-colour;
+        color: white;
+        padding-right: 25px;
+
+        &:after {
+            opacity: 1;
+            right: 0;
+        }
+    }
+}
+
+.glow {
+
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $neon-dark, 0 0 40px $neon-dark, 0 0 50px $neon-dark, 0 0 60px $neon-dark, 0 0 70px $neon-dark;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px $neon-light, 0 0 40px $neon-light, 0 0 50px $neon-light, 0 0 60px $neon-light, 0 0 70px $neon-light, 0 0 80px $neon-light;
+    }
 }
