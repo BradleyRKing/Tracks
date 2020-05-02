@@ -1,0 +1,275 @@
+// Colours. This will change for specific classes
+$base-colour: #8f63aa !default;
+$neon-dark: #8f63aa !default;
+$neon-light: #ab65da !default;
+
+@import url('https://fontlibrary.org/face/beon'); // BeonRegular
+@import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Bungee+Hairline'); // Bungee Outline
+
+body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 7em;
+    font-family: 'BeonRegular'; //'Bungee Outline';
+    margin: 0;
+    padding: 0
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Bungee Hairline';
+    margin: 0;
+    padding: 0
+}
+
+p {
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Bungee Hairline';
+    margin: 0;
+    padding: 0
+}
+
+u {
+    text-decoration: underline;
+    -webkit-text-decoration-color: $base-colour;
+    /* Safari */
+    text-decoration-color: $base-colour;
+}
+
+audio {
+    text-align: center;
+}
+
+iframe {
+    display: block;
+    margin: 50px auto;
+    color: black;
+}
+
+span {
+    white-space: nowrap;
+}
+
+.centre-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+}
+
+a {
+    color: white;
+}
+
+// Everything after here is themed per track.
+// To simplify things, we'll use mixins.
+
+// Buttons
+@mixin button($base-colour) {
+    button {
+        background-color: $base-colour;
+        font-family: 'BeonRegular';
+        color: white;
+        padding: 0px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 20px;
+        //border-radius: 5px;
+        border: 2px solid $base-colour;
+        cursor: pointer;
+
+        span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            margin: 16px 0px;
+
+            &+img {
+                position: relative;
+                opacity: 0;
+                top: -3px;
+                right: -20px;
+                transition: 0.5s;
+                height: 30px;
+                width: 0px;
+                margin: auto;
+                vertical-align: middle;
+            }
+        }
+
+        &:hover span {
+            background-color: $base-colour;
+            color: white;
+            padding-right: 15px;
+
+            &+img {
+                opacity: 1;
+                right: 0;
+                width: 30px;
+            }
+        }
+    }
+}
+
+// Defines animation
+@mixin glow($parent) {
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow-#{$parent} 1s ease-in-out infinite alternate;
+    -moz-animation: glow-#{$parent} 1s ease-in-out infinite alternate;
+    animation: glow-#{$parent} 1s ease-in-out infinite alternate;
+}
+
+// Defines keyframe colours
+@mixin keyframes($neon-dark, $neon-light, $parent) {
+    @keyframes glow-#{$parent} {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $neon-dark, 0 0 40px $neon-dark, 0 0 50px $neon-dark, 0 0 60px $neon-dark, 0 0 70px $neon-dark;
+        }
+
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 30px $neon-light, 0 0 40px $neon-light, 0 0 50px $neon-light, 0 0 60px $neon-light, 0 0 70px $neon-light, 0 0 80px $neon-light;
+        }
+    }
+}
+
+// Classes for themes
+.default {
+    $parent: 'default';
+    $base-colour: #8f63aa;
+    $neon-dark: #8f63aa;
+    $neon-light: #ab65da;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Marg
+.track-1 {
+    $parent: 'track-1';
+    $base-colour: #1b4254;
+    $neon-dark: #1b4254;
+    $neon-light: #3e7a96;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Anthony
+.track-2 {
+    $parent: 'track-2';
+    $base-colour: #559f91;
+    $neon-dark: #559f91;
+    $neon-light: #73d6c4;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Moses
+.track-3 {
+    $parent: 'track-3';
+    $base-colour: #7e83a5;
+    $neon-dark: #7e83a5;
+    $neon-light: #b4bbeb;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Hayley
+.track-4 {
+    $parent: 'track-4';
+    $base-colour: #51a1af;
+    $neon-dark: #51a1af;
+    $neon-light: #6ad5e7;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Mustafa
+.track-5 {
+    $parent: 'track-5';
+    $base-colour: #ba979e;
+    $neon-dark: #ba979e;
+    $neon-light: #f1c5ce;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Asia
+.track-6 {
+    $parent: 'track-6';
+    $base-colour: #d2776c;
+    $neon-dark: #d2776c;
+    $neon-light: #fd978b;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Niuboi
+.track-7 {
+    $parent: 'track-7';
+    $base-colour: #b44f1f;
+    $neon-dark: #b44f1f;
+    $neon-light: #e2652b;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}
+
+// Fatmi
+.track-8 {
+    $parent: 'track-8';
+    $base-colour: #6d2f28;
+    $neon-dark: #6d2f28;
+    $neon-light: #a7493f;
+    @include button($base-colour);
+
+    h1 {
+        @include keyframes($neon-dark, $neon-light, $parent);
+        @include glow($parent);
+    }
+}

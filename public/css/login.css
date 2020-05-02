@@ -1,0 +1,50 @@
+.center-page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 85%;
+}
+
+.login-form {
+  width: 300px;
+  margin: 0 auto;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.login-form h1 {
+  text-align: center;
+  font-size: 3em;
+  padding: 20px 0 20px 0;
+}
+
+.login-form input[type="password"],
+.login-form input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dddddd;
+  margin-bottom: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #8f63aa;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'BeonRegular';
+}
+/*# sourceMappingURL=login.css.map */

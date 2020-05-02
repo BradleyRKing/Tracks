@@ -1,0 +1,47 @@
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+        <script src="../js/fade.js"></script>
+        <script src="../js/audio_player.js"></script>
+        <link rel="icon" href="../images/icon-web.png">
+        <title>Tracks</title>
+    </head>
+
+    <body style="display: none;" class="track-3">
+        <h1 class='glow'>Track 3</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mRe-514tGMg" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class='centre-wrapper'>
+            <p>Drums</p>
+            <audio controls>
+                <source src="../audio/Drums.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class='centre-wrapper'>
+            <p>Piano</p>
+            <audio controls>
+                <source src="../audio/Piano.mp3" type="audio/mp3">
+            </audio>
+        </div>
+        <div class='centre-wrapper'>
+            <p>Guitar</p>
+            <audio controls>
+                <source src="../audio/Guitar.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <br />
+        <p onclick="startAudio()">Click me to play audio!</p>
+
+        <br />
+
+        <div class='centre-wrapper'>
+            <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
+        </div>
+    </body>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)"
+   height="73.799744"
+   width="93.376625"
+   sodipodi:docname="controller_white.svg"
+   id="svg849"
+   version="1.1"
+   y="0px"
+   x="0px"
+   viewBox="0 0 93.376625 73.799744"
+   data-name="Layer 1">
+  <metadata
+     id="metadata855">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>02</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs853" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg849"
+     inkscape:window-maximized="0"
+     inkscape:window-y="113"
+     inkscape:window-x="198"
+     inkscape:cy="49.4"
+     inkscape:cx="46.688311"
+     inkscape:zoom="5.376"
+     inkscape:pagecheckerboard="true"
+     showgrid="false"
+     id="namedview851"
+     inkscape:window-height="794"
+     inkscape:window-width="1234"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     inkscape:document-rotation="0"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <title
+     id="title833">02</title>
+  <g
+     transform="translate(-3.3116886,-13.1)"
+     style="fill:#ffffff"
+     id="g843"
+     data-name="Group">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff"
+       id="path835"
+       d="m 72.8,38.8 h -21 v -8.6 a 11,11 0 0 1 6.3,-10 l 7.5,-3.5 -1.6,-3.6 -7.5,3.5 a 15.1,15.1 0 0 0 -8.7,13.6 v 8.7 H 27.2 a 24,24 0 1 0 18,40 h 9.6 a 24,24 0 1 0 18,-40 z m 0,44.1 A 20,20 0 0 1 57.3,75.5 L 56.7,74.8 H 43.3 l -0.6,0.7 A 20,20 0 1 1 27.2,42.8 h 45.6 a 20.05,20.05 0 1 1 0,40.1 z"
+       data-name="Compound Path" />
+    <polygon
+       style="fill:#ffffff"
+       id="polygon837"
+       points="24,60.7 16.8,60.7 16.8,64.7 24,64.7 24,71.9 28,71.9 28,64.7 35.2,64.7 35.2,60.7 28,60.7 28,53.6 24,53.6 "
+       data-name="Path" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff"
+       id="path839"
+       d="m 79.4,52.1 a 5.2,5.2 0 1 0 5.2,5.2 5.2,5.2 0 0 0 -5.2,-5.2 z m 0,6.4 a 1.2,1.2 0 1 1 1.2,-1.2 1.2,1.2 0 0 1 -1.2,1.1 z"
+       data-name="Compound Path" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff"
+       id="path841"
+       d="m 69.3,64 a 5.2,5.2 0 1 0 5.2,5.2 5.2,5.2 0 0 0 -5.2,-5.2 z m 0,6.4 a 1.2,1.2 0 1 1 1.2,-1.2 1.2,1.2 0 0 1 -1.2,1.2 z"
+       data-name="Compound Path" />
+  </g>
+</svg>
