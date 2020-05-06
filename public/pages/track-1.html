@@ -7,41 +7,35 @@
         <link rel="icon" href="../images/icon-web.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="../js/fade.js"></script>
+        <script src="../js/load_config.js"></script>
+        <script src="../js/websocket.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
         <title>Tracks</title>
     </head>
 
     <body style="display: none;" class="track-1">
-        <h1 class='glow'>Track 1</h1>
+        <h1 class='glow'>Anthony</h1>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5WtJwoB8ZsA" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <script id="cid0020000248738465755" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js"
-            style="width: 560px;height: 350px;">
-            {
-                "handle": "tracks-fta",
-                "arch": "js",
-                "styles": {
-                    "a": "8f63aa",
-                    "b": 100,
-                    "c": "000000",
-                    "d": "000000",
-                    "k": "8f63aa",
-                    "l": "8f63aa",
-                    "m": "8f63aa",
-                    "p": "10",
-                    "q": "8f63aa",
-                    "r": 100,
-                    "t": 0,
-                    "usricon": 0,
-                    "surl": 0,
-                    "allowpm": 0,
-                    "cnrs": "0.35",
-                    "fwtickm": 1
-                }
-            }
-        </script>
+        <div class='centre-wrapper' style="flex-direction: column;">
+            <!--Poll 1-->
+            <div id="poll_q1">
+                <p>Question 1 placeholder</p><br><br>
+            </div>
+
+            <!--Poll 2-->
+            <div id="poll_q2">
+                <p>Question 2 placeholder</p><br><br>
+            </div>
+
+            <!--Poll 3-->
+            <div id="poll_q3">
+                <p>Question 3 placeholder</p><br><br>
+            </div>
+        </div>
+
         <div class='centre-wrapper'>
-            <a href="../home"><button class="button"><span>Home</span><img src="images/house_white.svg"></button></a>
+            <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
         </div>
     </body>

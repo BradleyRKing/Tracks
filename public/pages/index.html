@@ -9,38 +9,71 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
         <script src="js/load_config.js"></script>
         <script src="js/websocket.js"></script>
+        <script src="js/index.js"></script>
         <title>Tracks</title>
     </head>
 
     <body style="display: none;" class='default'>
-        <h1 class='glow'>Tracks</h1>
-        <br>
-        <h2 style="font-size: 1em;">A <u id='company'>Vena Amoris Projects</u> production</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/21X5lGlDOfg" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="page-container">
+            <div id="content-wrap">
+                <h1 class='glow'>Tracks</h1>
+                <br>
+                <h2 style="font-size: 1em;">A <u id='company'>Vena Amoris Projects</u> production</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/21X5lGlDOfg" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
-        <div class='centre-wrapper'>
-            <a id="track1" href="pages/track-1.html"><button class="button"><span>Track 1</span><img
-                        src="images/polaroid_white.svg"></button></a>
-            <a id="track2" href="pages/track-2.html"><button class="button"><span>Track 2</span><img
-                        src="images/tv_white.svg"></button></a>
-            <a id="track3" href="pages/track-3.html"><button class="button"><span>Track 3</span><img
-                        src="images/controller_white.svg"></button></a>
-            <a id="track4" href="pages/track-4.html"><button class="button"><span>Track 4</span><img
-                        src="images/carousel_white.svg"></button></a>
-            <a id="track5" href="pages/track-5.html"><button class="button"><span>Track 5</span><img
-                        src="images/projector_white.svg"></button></a>
-            <a id="track6" href="pages/track-6.html"><button class="button"><span>Track 6</span><img
-                        src="images/recorder_white.svg"></button></a>
-            <a id="track7" href="pages/track-7.html"><button class="button"><span>Track 7</span><img
-                        src="images/radio_white.svg"></button></a>
-            <a id="track8" href="pages/track-8.html"><button class="button"><span>Track 8</span><img
-                        src="images/mic_white.svg"></button></a>
+                <div class='centre-wrapper' style="flex-direction: column;">
+                    <!--World of Text-->
+                    <div id='worldOfText'>
+                        <iframe src="https://www.yourworldoftext.com/~Bradley.King/tracks"
+                            style="width: 560px; height: 315px">
+                        </iframe>
+                    </div>
+
+
+                    <!--Slideshow-->
+                    <div id="slideshow">
+                        <iframe
+                            src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=subway&sort=0&by=keywords&theme=default&scale=fill&speed=15000&limit=10&skin=default&autoplay=false"
+                            scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true"
+                            mozallowfullscreen="true">
+                            <p><a rel="nofollow" href="https://www.vouchersort.co.uk">at Vouchersort</a></p>
+                            <small>Powered
+                                by <a href="https://flickrembed.com">flickr embed</a>.</small>
+                        </iframe>
+                    </div>
+                    <script type="text/javascript">
+                        function showpics() {
+                            var a = $("#box").val();
+                            $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" + a +
+                                "&tagmode=any&format=json&jsoncallback=?",
+                                function (a) {
+                                    $("#images").hide().html(a).fadeIn("fast"), $.each(a.items, function (a, e) {
+                                        $("<img/>").attr("src", e.media.m).appendTo("#images")
+                                    })
+                                })
+                        }
+                    </script>
+
+                    <!--Survey-->
+                    <div id="end_survey">
+                        <p>End of show question placeholder.</p><br><br>
+                    </div>
+                </div>
+
+                <div class='centre-wrapper'>
+                    <div id='track-buttons'>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer id='footer'><a href="pages/credits.html">
+                    <p>Credits</p>
+                </a>
+            </footer>
         </div>
-
-        <div id='footer'><a href="pages/credits.html">
-                <p>Credits</p>
-            </a></div>
     </body>
 
 </html>

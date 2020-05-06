@@ -1,26 +1,76 @@
 {
-  "track1": {
-    "display": "inline-block"
+  "track_buttons": {
+    "track1": {
+      "artist": "Anthony",
+      "display": "inline-flex",
+      "icon": "tv_white.svg"
+    },
+    "track2": {
+      "artist": "Niuboi",
+      "display": "inline-flex",
+      "icon": "radio_white.svg"
+    },
+    "track3": {
+      "artist": "Asia",
+      "display": "inline-flex",
+      "icon": "recorder_white.svg"
+    },
+    "track4": {
+      "artist": "Fatmi",
+      "display": "inline-flex",
+      "icon": "mic_white.svg"
+    },
+    "track5": {
+      "artist": "Mustafa",
+      "display": "inline-flex",
+      "icon": "projector_white.svg"
+    },
+    "track6": {
+      "artist": "Moses",
+      "display": "inline-flex",
+      "icon": "controller_white.svg"
+    },
+    "track7": {
+      "artist": "Hayley",
+      "display": "inline-flex",
+      "icon": "carousel_white.svg"
+    },
+    "track8": {
+      "artist": "Marguerite",
+      "display": "inline-flex",
+      "icon": "polaroid_white.svg"
+    }
   },
-  "track2": {
-    "display": "inline-block"
+  "track_polls": {
+    "poll_q1": {
+      "label": "Anthony Q1",
+      "display": "block"
+    },
+    "poll_q2": {
+      "label": "Anthony Q2",
+      "display": "block"
+    },
+    "poll_q3": {
+      "label": "Anthony Q3",
+      "display": "block"
+    },
+    "poll_q4": {
+      "label": "Niuboi Poll",
+      "display": "block"
+    }
   },
-  "track3": {
-    "display": "inline-block"
-  },
-  "track4": {
-    "display": "inline-block"
-  },
-  "track5": {
-    "display": "inline-block"
-  },
-  "track6": {
-    "display": "inline-block"
-  },
-  "track7": {
-    "display": "inline-block"
-  },
-  "track8": {
-    "display": "inline-block"
+  "home_page_interactive": {
+    "worldOfText": {
+      "label": "World of Text",
+      "display": "none"
+    },
+    "slideshow": {
+      "label": "Slideshow",
+      "display": "none"
+    },
+    "end_survey": {
+      "label": "End Survey",
+      "display": "none"
+    }
   }
 }

@@ -57,7 +57,7 @@ app.post('/auth', function(req, res) {
 			req.session.loggedIn = true;
 			res.redirect('/home');
 		} else {
-			res.send('Uh-oh. Looks like your have the wrong password...');
+			res.sendFile(__dirname + '/public/pages/wrong_password.html');
 		}
 	} else {
 		res.send('Please enter password');
@@ -72,6 +72,9 @@ app.use('/*', authMiddleware.audienceAuth);
 // This needs to come after the initial login so that the index.html does not immediately appear.
 app.use(express.static(__dirname + '/public'));
 
+// UPDATE TO HIDE ROUTES FOR TRACKS (so people don't figure out the navigation)
+// Use routers in another js file
+
 app.get('/home', function(req, res) {
 	res.sendFile(__dirname + '/public/pages/index.html');
 });
@@ -79,7 +82,7 @@ app.get('/home', function(req, res) {
 // JSON config file requests. This keeps the configuration on the server side.
 app.get('/config', function(req, res) {
 	res.sendFile(__dirname + '/config.json');
-	console.log('Config requested');
+	//console.log('Config requested');
 });
 
 // Master page
@@ -91,18 +94,19 @@ app.get('/master', authMiddleware.adminAuth, function(req, res) {
 
 // Toggle requests from master
 app.post('/master', function(req, res) {
+	var category = req.body.category;
 	var ID = req.body.ID;
 
 	// This edits the config file when requests come from the master page
 	let file = editJsonFile(`${__dirname}/config.json`);
-	if (file.get(ID).display == 'none') {
-		file.set(ID, {
-			display : 'inline-block'
-		});
+	if (file.get(`${category}.${ID}`).display == 'none') {
+		if (category == 'track_buttons') {
+			file.set(`${category}.${ID}.display`, 'inline-flex');
+		} else {
+			file.set(`${category}.${ID}.display`, 'block');
+		}
 	} else {
-		file.set(ID, {
-			display : 'none'
-		});
+		file.set(`${category}.${ID}.display`, 'none');
 	}
 	file.save();
 

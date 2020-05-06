@@ -7,10 +7,21 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 7em;
   font-family: 'BeonRegular';
   margin: 0;
   padding: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 7em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 5em;
+  }
 }
 
 h2 {
@@ -44,6 +55,9 @@ iframe {
   display: block;
   margin: 50px auto;
   color: black;
+  width: 560px;
+  max-width: 100%;
+  height: 315px;
 }
 
 span {
@@ -61,12 +75,26 @@ span {
       align-content: center;
 }
 
+/* This will keep the footer at the bottom */
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+  /* Footer height */
+}
+
 #footer {
   position: absolute;
-  text-align: center;
   bottom: 0;
   width: 100%;
-  height: 30px;
+  max-width: 100%;
+  height: 2.5rem;
+  /* Footer height */
+  color: white;
+  text-align: center;
 }
 
 a {
@@ -145,7 +173,7 @@ a {
   }
 }
 
-.track-1 button {
+.track-8 button {
   background-color: #1b4254;
   font-family: 'BeonRegular';
   color: white;
@@ -155,6 +183,78 @@ a {
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #1b4254;
+  cursor: pointer;
+}
+
+.track-8 button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 16px 0px;
+}
+
+.track-8 button span + img {
+  position: relative;
+  opacity: 0;
+  top: -3px;
+  right: -20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  height: 30px;
+  width: 0px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.track-8 button:hover span {
+  background-color: #1b4254;
+  color: white;
+  padding-right: 15px;
+}
+
+.track-8 button:hover span + img {
+  opacity: 1;
+  right: 0;
+  width: 30px;
+}
+
+.track-8 h1 {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow-track-8 1s ease-in-out infinite alternate;
+  animation: glow-track-8 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow-track-8 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1b4254, 0 0 40px #1b4254, 0 0 50px #1b4254, 0 0 60px #1b4254, 0 0 70px #1b4254;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #3e7a96, 0 0 40px #3e7a96, 0 0 50px #3e7a96, 0 0 60px #3e7a96, 0 0 70px #3e7a96, 0 0 80px #3e7a96;
+  }
+}
+
+@keyframes glow-track-8 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1b4254, 0 0 40px #1b4254, 0 0 50px #1b4254, 0 0 60px #1b4254, 0 0 70px #1b4254;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #3e7a96, 0 0 40px #3e7a96, 0 0 50px #3e7a96, 0 0 60px #3e7a96, 0 0 70px #3e7a96, 0 0 80px #3e7a96;
+  }
+}
+
+.track-1 button {
+  background-color: #559f91;
+  font-family: 'BeonRegular';
+  color: white;
+  padding: 0px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 20px;
+  border: 2px solid #559f91;
   cursor: pointer;
 }
 
@@ -181,7 +281,7 @@ a {
 }
 
 .track-1 button:hover span {
-  background-color: #1b4254;
+  background-color: #559f91;
   color: white;
   padding-right: 15px;
 }
@@ -201,78 +301,15 @@ a {
 
 @-webkit-keyframes glow-track-1 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1b4254, 0 0 40px #1b4254, 0 0 50px #1b4254, 0 0 60px #1b4254, 0 0 70px #1b4254;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #559f91, 0 0 40px #559f91, 0 0 50px #559f91, 0 0 60px #559f91, 0 0 70px #559f91;
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #3e7a96, 0 0 40px #3e7a96, 0 0 50px #3e7a96, 0 0 60px #3e7a96, 0 0 70px #3e7a96, 0 0 80px #3e7a96;
+    text-shadow: 0 0 20px #fff, 0 0 30px #73d6c4, 0 0 40px #73d6c4, 0 0 50px #73d6c4, 0 0 60px #73d6c4, 0 0 70px #73d6c4, 0 0 80px #73d6c4;
   }
 }
 
 @keyframes glow-track-1 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1b4254, 0 0 40px #1b4254, 0 0 50px #1b4254, 0 0 60px #1b4254, 0 0 70px #1b4254;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #3e7a96, 0 0 40px #3e7a96, 0 0 50px #3e7a96, 0 0 60px #3e7a96, 0 0 70px #3e7a96, 0 0 80px #3e7a96;
-  }
-}
-
-.track-2 button {
-  background-color: #559f91;
-  font-family: 'BeonRegular';
-  color: white;
-  padding: 0px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 20px;
-  border: 2px solid #559f91;
-  cursor: pointer;
-}
-
-.track-2 button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin: 16px 0px;
-}
-
-.track-2 button span + img {
-  position: relative;
-  opacity: 0;
-  top: -3px;
-  right: -20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  height: 30px;
-  width: 0px;
-  margin: auto;
-  vertical-align: middle;
-}
-
-.track-2 button:hover span {
-  background-color: #559f91;
-  color: white;
-  padding-right: 15px;
-}
-
-.track-2 button:hover span + img {
-  opacity: 1;
-  right: 0;
-  width: 30px;
-}
-
-.track-2 h1 {
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow-track-2 1s ease-in-out infinite alternate;
-  animation: glow-track-2 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow-track-2 {
-  from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #559f91, 0 0 40px #559f91, 0 0 50px #559f91, 0 0 60px #559f91, 0 0 70px #559f91;
   }
   to {
@@ -280,16 +317,7 @@ a {
   }
 }
 
-@keyframes glow-track-2 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #559f91, 0 0 40px #559f91, 0 0 50px #559f91, 0 0 60px #559f91, 0 0 70px #559f91;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #73d6c4, 0 0 40px #73d6c4, 0 0 50px #73d6c4, 0 0 60px #73d6c4, 0 0 70px #73d6c4, 0 0 80px #73d6c4;
-  }
-}
-
-.track-3 button {
+.track-6 button {
   background-color: #7e83a5;
   font-family: 'BeonRegular';
   color: white;
@@ -302,7 +330,7 @@ a {
   cursor: pointer;
 }
 
-.track-3 button span {
+.track-6 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -311,7 +339,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-3 button span + img {
+.track-6 button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -324,26 +352,26 @@ a {
   vertical-align: middle;
 }
 
-.track-3 button:hover span {
+.track-6 button:hover span {
   background-color: #7e83a5;
   color: white;
   padding-right: 15px;
 }
 
-.track-3 button:hover span + img {
+.track-6 button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
 }
 
-.track-3 h1 {
+.track-6 h1 {
   color: #fff;
   text-align: center;
-  -webkit-animation: glow-track-3 1s ease-in-out infinite alternate;
-  animation: glow-track-3 1s ease-in-out infinite alternate;
+  -webkit-animation: glow-track-6 1s ease-in-out infinite alternate;
+  animation: glow-track-6 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow-track-3 {
+@-webkit-keyframes glow-track-6 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #7e83a5, 0 0 40px #7e83a5, 0 0 50px #7e83a5, 0 0 60px #7e83a5, 0 0 70px #7e83a5;
   }
@@ -352,7 +380,7 @@ a {
   }
 }
 
-@keyframes glow-track-3 {
+@keyframes glow-track-6 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #7e83a5, 0 0 40px #7e83a5, 0 0 50px #7e83a5, 0 0 60px #7e83a5, 0 0 70px #7e83a5;
   }
@@ -361,7 +389,7 @@ a {
   }
 }
 
-.track-4 button {
+.track-7 button {
   background-color: #51a1af;
   font-family: 'BeonRegular';
   color: white;
@@ -374,7 +402,7 @@ a {
   cursor: pointer;
 }
 
-.track-4 button span {
+.track-7 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -383,7 +411,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-4 button span + img {
+.track-7 button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -396,26 +424,26 @@ a {
   vertical-align: middle;
 }
 
-.track-4 button:hover span {
+.track-7 button:hover span {
   background-color: #51a1af;
   color: white;
   padding-right: 15px;
 }
 
-.track-4 button:hover span + img {
+.track-7 button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
 }
 
-.track-4 h1 {
+.track-7 h1 {
   color: #fff;
   text-align: center;
-  -webkit-animation: glow-track-4 1s ease-in-out infinite alternate;
-  animation: glow-track-4 1s ease-in-out infinite alternate;
+  -webkit-animation: glow-track-7 1s ease-in-out infinite alternate;
+  animation: glow-track-7 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow-track-4 {
+@-webkit-keyframes glow-track-7 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #51a1af, 0 0 40px #51a1af, 0 0 50px #51a1af, 0 0 60px #51a1af, 0 0 70px #51a1af;
   }
@@ -424,7 +452,7 @@ a {
   }
 }
 
-@keyframes glow-track-4 {
+@keyframes glow-track-7 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #51a1af, 0 0 40px #51a1af, 0 0 50px #51a1af, 0 0 60px #51a1af, 0 0 70px #51a1af;
   }
@@ -505,7 +533,7 @@ a {
   }
 }
 
-.track-6 button {
+.track-3 button {
   background-color: #d2776c;
   font-family: 'BeonRegular';
   color: white;
@@ -518,7 +546,7 @@ a {
   cursor: pointer;
 }
 
-.track-6 button span {
+.track-3 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -527,7 +555,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-6 button span + img {
+.track-3 button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -540,26 +568,26 @@ a {
   vertical-align: middle;
 }
 
-.track-6 button:hover span {
+.track-3 button:hover span {
   background-color: #d2776c;
   color: white;
   padding-right: 15px;
 }
 
-.track-6 button:hover span + img {
+.track-3 button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
 }
 
-.track-6 h1 {
+.track-3 h1 {
   color: #fff;
   text-align: center;
-  -webkit-animation: glow-track-6 1s ease-in-out infinite alternate;
-  animation: glow-track-6 1s ease-in-out infinite alternate;
+  -webkit-animation: glow-track-3 1s ease-in-out infinite alternate;
+  animation: glow-track-3 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow-track-6 {
+@-webkit-keyframes glow-track-3 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #d2776c, 0 0 40px #d2776c, 0 0 50px #d2776c, 0 0 60px #d2776c, 0 0 70px #d2776c;
   }
@@ -568,7 +596,7 @@ a {
   }
 }
 
-@keyframes glow-track-6 {
+@keyframes glow-track-3 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #d2776c, 0 0 40px #d2776c, 0 0 50px #d2776c, 0 0 60px #d2776c, 0 0 70px #d2776c;
   }
@@ -577,7 +605,7 @@ a {
   }
 }
 
-.track-7 button {
+.track-2 button {
   background-color: #b44f1f;
   font-family: 'BeonRegular';
   color: white;
@@ -590,7 +618,7 @@ a {
   cursor: pointer;
 }
 
-.track-7 button span {
+.track-2 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -599,7 +627,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-7 button span + img {
+.track-2 button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -612,26 +640,26 @@ a {
   vertical-align: middle;
 }
 
-.track-7 button:hover span {
+.track-2 button:hover span {
   background-color: #b44f1f;
   color: white;
   padding-right: 15px;
 }
 
-.track-7 button:hover span + img {
+.track-2 button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
 }
 
-.track-7 h1 {
+.track-2 h1 {
   color: #fff;
   text-align: center;
-  -webkit-animation: glow-track-7 1s ease-in-out infinite alternate;
-  animation: glow-track-7 1s ease-in-out infinite alternate;
+  -webkit-animation: glow-track-2 1s ease-in-out infinite alternate;
+  animation: glow-track-2 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow-track-7 {
+@-webkit-keyframes glow-track-2 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #b44f1f, 0 0 40px #b44f1f, 0 0 50px #b44f1f, 0 0 60px #b44f1f, 0 0 70px #b44f1f;
   }
@@ -640,7 +668,7 @@ a {
   }
 }
 
-@keyframes glow-track-7 {
+@keyframes glow-track-2 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #b44f1f, 0 0 40px #b44f1f, 0 0 50px #b44f1f, 0 0 60px #b44f1f, 0 0 70px #b44f1f;
   }
@@ -649,7 +677,7 @@ a {
   }
 }
 
-.track-8 button {
+.track-4 button {
   background-color: #6d2f28;
   font-family: 'BeonRegular';
   color: white;
@@ -662,7 +690,7 @@ a {
   cursor: pointer;
 }
 
-.track-8 button span {
+.track-4 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -671,7 +699,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-8 button span + img {
+.track-4 button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -684,26 +712,26 @@ a {
   vertical-align: middle;
 }
 
-.track-8 button:hover span {
+.track-4 button:hover span {
   background-color: #6d2f28;
   color: white;
   padding-right: 15px;
 }
 
-.track-8 button:hover span + img {
+.track-4 button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
 }
 
-.track-8 h1 {
+.track-4 h1 {
   color: #fff;
   text-align: center;
-  -webkit-animation: glow-track-8 1s ease-in-out infinite alternate;
-  animation: glow-track-8 1s ease-in-out infinite alternate;
+  -webkit-animation: glow-track-4 1s ease-in-out infinite alternate;
+  animation: glow-track-4 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow-track-8 {
+@-webkit-keyframes glow-track-4 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6d2f28, 0 0 40px #6d2f28, 0 0 50px #6d2f28, 0 0 60px #6d2f28, 0 0 70px #6d2f28;
   }
@@ -712,7 +740,7 @@ a {
   }
 }
 
-@keyframes glow-track-8 {
+@keyframes glow-track-4 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6d2f28, 0 0 40px #6d2f28, 0 0 50px #6d2f28, 0 0 60px #6d2f28, 0 0 70px #6d2f28;
   }

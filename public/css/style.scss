@@ -2,6 +2,7 @@
 $base-colour: #8f63aa !default;
 $neon-dark: #8f63aa !default;
 $neon-light: #ab65da !default;
+$max-width: 100%;
 
 @import url('https://fontlibrary.org/face/beon'); // BeonRegular
 @import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Bungee+Hairline'); // Bungee Outline
@@ -13,10 +14,17 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 7em;
     font-family: 'BeonRegular'; //'Bungee Outline';
     margin: 0;
-    padding: 0
+    padding: 0;
+
+    @media only screen and (min-width: 600px) {
+        font-size: 7em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 5em;
+    }
 }
 
 h2 {
@@ -50,6 +58,9 @@ iframe {
     display: block;
     margin: 50px auto;
     color: black;
+    width: 560px;
+    max-width: $max-width;
+    height: 315px;
 }
 
 span {
@@ -62,12 +73,26 @@ span {
     align-content: center;
 }
 
+/* This will keep the footer at the bottom */
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
 #footer {
     position: absolute;
-    text-align: center;
     bottom: 0;
     width: 100%;
-    height: 30px;
+    max-width: $max-width;
+    height: 2.5rem;
+    /* Footer height */
+    color: white;
+    text-align: center;
 }
 
 a {
@@ -163,8 +188,8 @@ a {
 }
 
 // Marg
-.track-1 {
-    $parent: 'track-1';
+.track-8 {
+    $parent: 'track-8';
     $base-colour: #1b4254;
     $neon-dark: #1b4254;
     $neon-light: #3e7a96;
@@ -177,8 +202,8 @@ a {
 }
 
 // Anthony
-.track-2 {
-    $parent: 'track-2';
+.track-1 {
+    $parent: 'track-1';
     $base-colour: #559f91;
     $neon-dark: #559f91;
     $neon-light: #73d6c4;
@@ -191,8 +216,8 @@ a {
 }
 
 // Moses
-.track-3 {
-    $parent: 'track-3';
+.track-6 {
+    $parent: 'track-6';
     $base-colour: #7e83a5;
     $neon-dark: #7e83a5;
     $neon-light: #b4bbeb;
@@ -205,8 +230,8 @@ a {
 }
 
 // Hayley
-.track-4 {
-    $parent: 'track-4';
+.track-7 {
+    $parent: 'track-7';
     $base-colour: #51a1af;
     $neon-dark: #51a1af;
     $neon-light: #6ad5e7;
@@ -233,8 +258,8 @@ a {
 }
 
 // Asia
-.track-6 {
-    $parent: 'track-6';
+.track-3 {
+    $parent: 'track-3';
     $base-colour: #d2776c;
     $neon-dark: #d2776c;
     $neon-light: #fd978b;
@@ -247,8 +272,8 @@ a {
 }
 
 // Niuboi
-.track-7 {
-    $parent: 'track-7';
+.track-2 {
+    $parent: 'track-2';
     $base-colour: #b44f1f;
     $neon-dark: #b44f1f;
     $neon-light: #e2652b;
@@ -261,8 +286,8 @@ a {
 }
 
 // Fatmi
-.track-8 {
-    $parent: 'track-8';
+.track-4 {
+    $parent: 'track-4';
     $base-colour: #6d2f28;
     $neon-dark: #6d2f28;
     $neon-light: #a7493f;
