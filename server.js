@@ -9,6 +9,8 @@ var authMiddleware = require('./middleware/auth');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const tracks = require('./routes/tracks');
+
 const app = express();
 
 // Use to handle post requests
@@ -72,8 +74,8 @@ app.use('/*', authMiddleware.audienceAuth);
 // This needs to come after the initial login so that the index.html does not immediately appear.
 app.use(express.static(__dirname + '/public'));
 
-// UPDATE TO HIDE ROUTES FOR TRACKS (so people don't figure out the navigation)
-// Use routers in another js file
+// This handles track routing.
+app.use('/tracks', tracks);
 
 app.get('/home', function(req, res) {
 	res.sendFile(__dirname + '/public/pages/index.html');

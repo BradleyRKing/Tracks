@@ -2,6 +2,7 @@
 $(window).on('load', function() {
 	$.getJSON('/config', function(json) {
 		for (var key in json.track_buttons) {
+			/*
 			$('#track-buttons').append(
 				'<a id=' +
 					key +
@@ -12,6 +13,20 @@ $(window).on('load', function() {
 					'</span><img src="images/' +
 					json.track_buttons[key].icon +
 					'"></button></a>'
+			);*/
+
+			$('#track-buttons').append(
+				'<form id="' +
+					key +
+					'" action="tracks/' +
+					key.slice(-1) +
+					'" method="POST">' +
+					'<button type="submit" class="button"><span>' +
+					json.track_buttons[key].artist +
+					'</span><img src="images/' +
+					json.track_buttons[key].icon +
+					'"></button>' +
+					'</form>'
 			);
 			$('#' + key).css('display', json.track_buttons[key].display);
 		}

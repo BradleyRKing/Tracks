@@ -2,61 +2,77 @@
   "track_buttons": {
     "track1": {
       "artist": "Anthony",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "tv_white.svg"
     },
     "track2": {
       "artist": "Niuboi",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "radio_white.svg"
     },
     "track3": {
       "artist": "Asia",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "recorder_white.svg"
     },
     "track4": {
       "artist": "Fatmi",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "mic_white.svg"
     },
     "track5": {
       "artist": "Mustafa",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "projector_white.svg"
     },
     "track6": {
       "artist": "Moses",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "controller_white.svg"
     },
     "track7": {
       "artist": "Hayley",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "carousel_white.svg"
     },
     "track8": {
       "artist": "Marguerite",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "polaroid_white.svg"
     }
   },
   "track_polls": {
     "poll_q1": {
       "label": "Anthony Q1",
-      "display": "block"
+      "display": "none"
     },
     "poll_q2": {
       "label": "Anthony Q2",
-      "display": "block"
+      "display": "none"
     },
     "poll_q3": {
       "label": "Anthony Q3",
-      "display": "block"
+      "display": "none"
     },
     "poll_q4": {
-      "label": "Niuboi Poll",
-      "display": "block"
+      "label": "Niuboi Q1",
+      "display": "none"
+    },
+    "poll_q5": {
+      "label": "Niuboi Q2",
+      "display": "none"
+    },
+    "poll_q6": {
+      "label": "Niuboi Q3",
+      "display": "none"
+    },
+    "poll_q7": {
+      "label": "Niuboi Q4",
+      "display": "none"
+    },
+    "poll_q8": {
+      "label": "Niuboi Q5",
+      "display": "none"
     }
   },
   "home_page_interactive": {

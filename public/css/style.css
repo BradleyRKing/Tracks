@@ -40,6 +40,12 @@ p {
   padding: 0;
 }
 
+form {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 u {
   text-decoration: underline;
   -webkit-text-decoration-color: #8f63aa;
@@ -57,7 +63,7 @@ iframe {
   color: black;
   width: 560px;
   max-width: 100%;
-  height: 315px;
+  height: 340px;
 }
 
 span {
@@ -107,7 +113,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #8f63aa;
@@ -116,7 +124,9 @@ a {
 
 .default button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -179,7 +189,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #1b4254;
@@ -188,7 +200,9 @@ a {
 
 .track-8 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -251,7 +265,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #559f91;
@@ -260,7 +276,9 @@ a {
 
 .track-1 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -323,7 +341,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #7e83a5;
@@ -332,7 +352,9 @@ a {
 
 .track-6 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -395,7 +417,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #51a1af;
@@ -404,7 +428,9 @@ a {
 
 .track-7 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -467,7 +493,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #ba979e;
@@ -476,7 +504,9 @@ a {
 
 .track-5 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -539,7 +569,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #d2776c;
@@ -548,7 +580,9 @@ a {
 
 .track-3 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -611,7 +645,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #b44f1f;
@@ -620,7 +656,9 @@ a {
 
 .track-2 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -683,7 +721,9 @@ a {
   color: white;
   padding: 0px 32px;
   text-align: center;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 16px;
   margin: 4px 20px;
   border: 2px solid #6d2f28;
@@ -692,7 +732,9 @@ a {
 
 .track-4 button span {
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-transition: 0.5s;
   transition: 0.5s;

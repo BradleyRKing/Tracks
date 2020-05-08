@@ -43,6 +43,10 @@ p {
     padding: 0
 }
 
+form {
+    display: inline-flex;
+}
+
 u {
     text-decoration: underline;
     -webkit-text-decoration-color: $base-colour;
@@ -60,7 +64,7 @@ iframe {
     color: black;
     width: 560px;
     max-width: $max-width;
-    height: 315px;
+    height: 340px;
 }
 
 span {
@@ -110,7 +114,7 @@ a {
         color: white;
         padding: 0px 32px;
         text-align: center;
-        display: inline-block;
+        display: inline-flex;
         font-size: 16px;
         margin: 4px 20px;
         //border-radius: 5px;
@@ -119,7 +123,7 @@ a {
 
         span {
             cursor: pointer;
-            display: inline-block;
+            display: inline-flex;
             position: relative;
             transition: 0.5s;
             margin: 16px 0px;
