@@ -7,7 +7,7 @@
     },
     "track2": {
       "artist": "Niuboi",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "radio_white.svg"
     },
     "track3": {

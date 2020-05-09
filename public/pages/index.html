@@ -3,17 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="icon" href="../images/icon-web.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-        <script src="js/load_config.js"></script>
-        <script src="js/websocket.js"></script>
-        <script src="js/index.js"></script>
+        <script src="../js/websocket.js"></script>
+        <script src="../js/index.js"></script>
         <title>Tracks</title>
     </head>
 
-    <body style="display: none;" class='default'>
+    <body style="visibility: hidden;" class='default'>
         <div id="page-container">
             <div id="content-wrap">
                 <h1 class='glow'>Tracks</h1>
@@ -27,9 +26,9 @@
 
                 <div class='centre-wrapper' style="flex-direction: column;">
                     <!--World of Text-->
-                    <div id='worldOfText'>
+                    <div id='worldOfText' style="visibility: hidden;">
                         <iframe src="https://www.yourworldoftext.com/~Bradley.King/tracks"
-                            style="width: 560px; height: 315px">
+                            style="width: 560px; height: 315px;">
                         </iframe>
                     </div>
 

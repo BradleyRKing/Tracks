@@ -31,6 +31,18 @@ $(window).on('load', function() {
 			$('#' + key).css('display', json.track_buttons[key].display);
 		}
 	});
+
+	$.getJSON('/config', function(json) {
+		// Load buttons
+		for (var category in json) {
+			for (var key in json[category]) {
+				$('#' + key).css('display', json[category][key].display);
+			}
+		}
+	});
 	// Fade in when the body has been updated.
-	$('body').fadeIn(3000);
+	// We do it this way (rather than display:none) so that world of text loads properly
+	// WOT has issues if it starts as display:none because of width calculations.
+	$('#worldOfText').css('visibility', 'visible').hide();
+	$('body').hide().css('visibility', 'visible').fadeIn('3000');
 });
