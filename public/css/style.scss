@@ -67,9 +67,18 @@ iframe {
     height: 340px;
 }
 
-span {
-    white-space: nowrap;
+.stream {
+    display: flex;
+    margin: 25px auto;
+    color: black;
+    width: 560px;
+    max-width: $max-width;
+    height: 340px;
 }
+
+//span {
+//    white-space: nowrap;
+//}
 
 .centre-wrapper {
     display: flex;
@@ -108,7 +117,7 @@ a {
 
 // Buttons
 @mixin button($base-colour) {
-    button {
+    .button {
         background-color: $base-colour;
         font-family: 'BeonRegular';
         color: white;
@@ -140,6 +149,7 @@ a {
                 vertical-align: middle;
             }
         }
+
 
         &:hover span {
             background-color: $base-colour;

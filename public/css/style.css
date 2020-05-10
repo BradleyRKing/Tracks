@@ -66,8 +66,15 @@ iframe {
   height: 340px;
 }
 
-span {
-  white-space: nowrap;
+.stream {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 25px auto;
+  color: black;
+  width: 560px;
+  max-width: 100%;
+  height: 340px;
 }
 
 .centre-wrapper {
@@ -107,7 +114,7 @@ a {
   color: white;
 }
 
-.default button {
+.default .button {
   background-color: #8f63aa;
   font-family: 'BeonRegular';
   color: white;
@@ -122,7 +129,7 @@ a {
   cursor: pointer;
 }
 
-.default button span {
+.default .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -133,7 +140,7 @@ a {
   margin: 16px 0px;
 }
 
-.default button span + img {
+.default .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -146,13 +153,13 @@ a {
   vertical-align: middle;
 }
 
-.default button:hover span {
+.default .button:hover span {
   background-color: #8f63aa;
   color: white;
   padding-right: 15px;
 }
 
-.default button:hover span + img {
+.default .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -183,7 +190,7 @@ a {
   }
 }
 
-.track-8 button {
+.track-8 .button {
   background-color: #1b4254;
   font-family: 'BeonRegular';
   color: white;
@@ -198,7 +205,7 @@ a {
   cursor: pointer;
 }
 
-.track-8 button span {
+.track-8 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -209,7 +216,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-8 button span + img {
+.track-8 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -222,13 +229,13 @@ a {
   vertical-align: middle;
 }
 
-.track-8 button:hover span {
+.track-8 .button:hover span {
   background-color: #1b4254;
   color: white;
   padding-right: 15px;
 }
 
-.track-8 button:hover span + img {
+.track-8 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -259,7 +266,7 @@ a {
   }
 }
 
-.track-1 button {
+.track-1 .button {
   background-color: #559f91;
   font-family: 'BeonRegular';
   color: white;
@@ -274,7 +281,7 @@ a {
   cursor: pointer;
 }
 
-.track-1 button span {
+.track-1 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -285,7 +292,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-1 button span + img {
+.track-1 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -298,13 +305,13 @@ a {
   vertical-align: middle;
 }
 
-.track-1 button:hover span {
+.track-1 .button:hover span {
   background-color: #559f91;
   color: white;
   padding-right: 15px;
 }
 
-.track-1 button:hover span + img {
+.track-1 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -335,7 +342,7 @@ a {
   }
 }
 
-.track-6 button {
+.track-6 .button {
   background-color: #7e83a5;
   font-family: 'BeonRegular';
   color: white;
@@ -350,7 +357,7 @@ a {
   cursor: pointer;
 }
 
-.track-6 button span {
+.track-6 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -361,7 +368,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-6 button span + img {
+.track-6 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -374,13 +381,13 @@ a {
   vertical-align: middle;
 }
 
-.track-6 button:hover span {
+.track-6 .button:hover span {
   background-color: #7e83a5;
   color: white;
   padding-right: 15px;
 }
 
-.track-6 button:hover span + img {
+.track-6 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -411,7 +418,7 @@ a {
   }
 }
 
-.track-7 button {
+.track-7 .button {
   background-color: #51a1af;
   font-family: 'BeonRegular';
   color: white;
@@ -426,7 +433,7 @@ a {
   cursor: pointer;
 }
 
-.track-7 button span {
+.track-7 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -437,7 +444,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-7 button span + img {
+.track-7 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -450,13 +457,13 @@ a {
   vertical-align: middle;
 }
 
-.track-7 button:hover span {
+.track-7 .button:hover span {
   background-color: #51a1af;
   color: white;
   padding-right: 15px;
 }
 
-.track-7 button:hover span + img {
+.track-7 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -487,7 +494,7 @@ a {
   }
 }
 
-.track-5 button {
+.track-5 .button {
   background-color: #ba979e;
   font-family: 'BeonRegular';
   color: white;
@@ -502,7 +509,7 @@ a {
   cursor: pointer;
 }
 
-.track-5 button span {
+.track-5 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -513,7 +520,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-5 button span + img {
+.track-5 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -526,13 +533,13 @@ a {
   vertical-align: middle;
 }
 
-.track-5 button:hover span {
+.track-5 .button:hover span {
   background-color: #ba979e;
   color: white;
   padding-right: 15px;
 }
 
-.track-5 button:hover span + img {
+.track-5 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -563,7 +570,7 @@ a {
   }
 }
 
-.track-3 button {
+.track-3 .button {
   background-color: #d2776c;
   font-family: 'BeonRegular';
   color: white;
@@ -578,7 +585,7 @@ a {
   cursor: pointer;
 }
 
-.track-3 button span {
+.track-3 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -589,7 +596,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-3 button span + img {
+.track-3 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -602,13 +609,13 @@ a {
   vertical-align: middle;
 }
 
-.track-3 button:hover span {
+.track-3 .button:hover span {
   background-color: #d2776c;
   color: white;
   padding-right: 15px;
 }
 
-.track-3 button:hover span + img {
+.track-3 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -639,7 +646,7 @@ a {
   }
 }
 
-.track-2 button {
+.track-2 .button {
   background-color: #b44f1f;
   font-family: 'BeonRegular';
   color: white;
@@ -654,7 +661,7 @@ a {
   cursor: pointer;
 }
 
-.track-2 button span {
+.track-2 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -665,7 +672,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-2 button span + img {
+.track-2 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -678,13 +685,13 @@ a {
   vertical-align: middle;
 }
 
-.track-2 button:hover span {
+.track-2 .button:hover span {
   background-color: #b44f1f;
   color: white;
   padding-right: 15px;
 }
 
-.track-2 button:hover span + img {
+.track-2 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;
@@ -715,7 +722,7 @@ a {
   }
 }
 
-.track-4 button {
+.track-4 .button {
   background-color: #6d2f28;
   font-family: 'BeonRegular';
   color: white;
@@ -730,7 +737,7 @@ a {
   cursor: pointer;
 }
 
-.track-4 button span {
+.track-4 .button span {
   cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -741,7 +748,7 @@ a {
   margin: 16px 0px;
 }
 
-.track-4 button span + img {
+.track-4 .button span + img {
   position: relative;
   opacity: 0;
   top: -3px;
@@ -754,13 +761,13 @@ a {
   vertical-align: middle;
 }
 
-.track-4 button:hover span {
+.track-4 .button:hover span {
   background-color: #6d2f28;
   color: white;
   padding-right: 15px;
 }
 
-.track-4 button:hover span + img {
+.track-4 .button:hover span + img {
   opacity: 1;
   right: 0;
   width: 30px;

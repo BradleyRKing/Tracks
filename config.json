@@ -7,17 +7,17 @@
     },
     "track2": {
       "artist": "Niuboi",
-      "display": "inline-flex",
+      "display": "none",
       "icon": "radio_white.svg"
     },
     "track3": {
       "artist": "Asia",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "recorder_white.svg"
     },
     "track4": {
       "artist": "Fatmi",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "mic_white.svg"
     },
     "track5": {
@@ -44,15 +44,15 @@
   "track_polls": {
     "poll_q1": {
       "label": "Anthony Q1",
-      "display": "none"
+      "display": "block"
     },
     "poll_q2": {
       "label": "Anthony Q2",
-      "display": "none"
+      "display": "block"
     },
     "poll_q3": {
       "label": "Anthony Q3",
-      "display": "none"
+      "display": "block"
     },
     "poll_q4": {
       "label": "Niuboi Q1",
