@@ -2,12 +2,12 @@
   "track_buttons": {
     "track1": {
       "artist": "Anthony",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "tv_white.svg"
     },
     "track2": {
       "artist": "Niuboi",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "radio_white.svg"
     },
     "track3": {
@@ -22,37 +22,37 @@
     },
     "track5": {
       "artist": "Mustafa",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "projector_white.svg"
     },
     "track6": {
       "artist": "Moses",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "controller_white.svg"
     },
     "track7": {
       "artist": "Hayley",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "carousel_white.svg"
     },
     "track8": {
       "artist": "Marguerite",
-      "display": "none",
+      "display": "inline-flex",
       "icon": "polaroid_white.svg"
     }
   },
   "track_polls": {
     "poll_q1": {
       "label": "Anthony Q1",
-      "display": "block"
+      "display": "none"
     },
     "poll_q2": {
       "label": "Anthony Q2",
-      "display": "block"
+      "display": "none"
     },
     "poll_q3": {
       "label": "Anthony Q3",
-      "display": "block"
+      "display": "none"
     },
     "poll_q4": {
       "label": "Niuboi Q1",
