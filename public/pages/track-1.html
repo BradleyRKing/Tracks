@@ -17,13 +17,14 @@
     <body style="display: none;" class="track-1">
         <h1 class='glow'>Anthony</h1>
         <!-- YouTube Live Stream-->
-        <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/live_stream?channel=UCVT2fBEAQH0W6uF2y5hTOaA" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+        <div id="anthony_yt">
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/live_stream?channel=UCVT2fBEAQH0W6uF2y5hTOaA" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
         <!-- VideoJS Live Stream -->
-        <!--
-        <div class="stream">
+        <div id="anthony_vjs" class="stream">
             <video id="Anthony_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
                 preload="auto" poster="../images/Tracks_Poster.jpg" data-setup='{liveui: true, autoplay: true}'>
                 <source src="http://157.245.180.32:8000/live/Anthony/index.m3u8" type="application/x-mpegURL" />
@@ -35,22 +36,27 @@
                         video</a></p>
             </video>
         </div>
-        -->
 
         <div class='centre-wrapper' style="flex-direction: column;">
             <!--Poll 1-->
             <div id="poll_q1">
-                <p>Question 1 placeholder</p><br><br>
+                <iframe
+                    src=“https://docs.google.com/forms/d/e/1FAIpQLSfpzOcrItu7zGXmiaUBVYfo6C90YvjYYQKJTewCGJ4l63KKKQ/viewform?embedded=true”
+                    frameborder=“0" marginheight=“0” marginwidth=“0">Loading…</iframe>
             </div>
 
             <!--Poll 2-->
             <div id="poll_q2">
-                <p>Question 2 placeholder</p><br><br>
+                <iframe
+                    src=“https://docs.google.com/forms/d/e/1FAIpQLSch2ukbyJYr1TcRiXUHUSKfX2OK25WgwjTkXc5z-JGKr0Q6lQ/viewform?embedded=true”
+                    frameborder=“0" marginheight=“0” marginwidth=“0">Loading…</iframe>
             </div>
 
             <!--Poll 3-->
             <div id="poll_q3">
-                <p>Question 3 placeholder</p><br><br>
+                <iframe
+                    src=“https://docs.google.com/forms/d/e/1FAIpQLScdzxtLcD9EuX77BWy2upMCUsrX0ShTUxRup478o-OuMxNldw/viewform?embedded=true”
+                    frameborder=“0" marginheight=“0” marginwidth=“0">Loading…</iframe>
             </div>
         </div>
 
@@ -58,3 +64,5 @@
             <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
         </div>
     </body>
+
+</html>

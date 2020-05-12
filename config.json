@@ -44,15 +44,15 @@
   "track_polls": {
     "poll_q1": {
       "label": "Anthony Q1",
-      "display": "none"
+      "display": "block"
     },
     "poll_q2": {
       "label": "Anthony Q2",
-      "display": "none"
+      "display": "block"
     },
     "poll_q3": {
       "label": "Anthony Q3",
-      "display": "none"
+      "display": "block"
     },
     "poll_q4": {
       "label": "Niuboi Q1",
@@ -87,6 +87,80 @@
     "end_survey": {
       "label": "End Survey",
       "display": "none"
+    }
+  },
+  "stream_service": {
+    "mac_yt": {
+      "label": "Mac YouTube",
+      "display": "none"
+    },
+    "mac_vjs": {
+      "label": "Mac Video.js",
+      "display": "block"
+    },
+    "anthony_yt": {
+      "label": "Anthony YouTube",
+      "display": "none"
+    },
+    "anthony_vjs": {
+      "label": "Anthony Video.js",
+      "display": "block"
+    },
+    "niuboi_yt": {
+      "label": "Niuboi YouTube",
+      "display": "none"
+    },
+    "niuboi_vjs": {
+      "label": "Niuboi Video.js",
+      "display": "block"
+    },
+    "asia_yt": {
+      "label": "Asia YouTube",
+      "display": "none"
+    },
+    "asia_vjs": {
+      "label": "Asia Video.js",
+      "display": "block"
+    },
+    "fatmi_yt": {
+      "label": "Fatmi YouTube",
+      "display": "none"
+    },
+    "fatmi_vjs": {
+      "label": "Fatmi Video.js",
+      "display": "block"
+    },
+    "mustafa_yt": {
+      "label": "Mustafa YouTube",
+      "display": "none"
+    },
+    "mustafa_vjs": {
+      "label": "Mustafa Video.js",
+      "display": "block"
+    },
+    "moses_yt": {
+      "label": "Moses YouTube",
+      "display": "none"
+    },
+    "moses_vjs": {
+      "label": "Moses Video.js",
+      "display": "block"
+    },
+    "hayley_yt": {
+      "label": "Hayley YouTube",
+      "display": "none"
+    },
+    "Hayley_vjs": {
+      "label": "Hayley Video.js",
+      "display": "block"
+    },
+    "marguerite_yt": {
+      "label": "Marguerite YouTube",
+      "display": "none"
+    },
+    "marguerite_vjs": {
+      "label": "Marguerite Video.js",
+      "display": "block"
     }
   }
 }

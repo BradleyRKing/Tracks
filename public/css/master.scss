@@ -92,3 +92,13 @@
      align-content: center;
      white-space: nowrap;
  }
+
+ #playerWrapper {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     width: 50%;
+     margin: 0 auto;
+     justify-content: center;
+     align-content: center;
+     white-space: nowrap;
+ }

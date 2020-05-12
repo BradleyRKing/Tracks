@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-        <script src="../js/fade.js"></script>
+        <script src="../js/load_config.js"></script>
         <link rel="icon" href="../images/icon-web.png">
         <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
         <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
@@ -15,10 +15,11 @@
 
     <body style="display: none;" class="track-6">
         <h1 class='glow'>Moses</h1>
-        <p>Nothing here yet!</p>
+        <div id="moses_yt">
+            <p>Nothing here yet!</p>
+        </div>
 
-        <!--
-        <div class="stream">
+        <div id="moses_vjs" class="stream">
             <video id="Moses_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
                 preload="auto" poster="../images/Tracks_Poster.jpg" data-setup='{liveui: true, autoplay: true}'>
                 <source src="http://157.245.180.32:8000/live/Moses/index.m3u8" type="application/x-mpegURL" />
@@ -30,9 +31,10 @@
                         video</a></p>
             </video>
         </div>
-        -->
 
         <div class='centre-wrapper'>
             <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
         </div>
     </body>
+
+</html>

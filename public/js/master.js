@@ -46,6 +46,21 @@ $.getJSON('/config', function(json) {
 			$('#' + key).attr('checked', 'checked');
 		}
 	}
+
+	// Video Player
+	for (var key in json.stream_service) {
+		$('#playerWrapper').append(
+			'<div style="padding: 10px;"><p>' +
+				json.stream_service[key].label +
+				'<br><br><label class="switch"><input type="checkbox" id="' +
+				key +
+				'" data-category="stream_service" onclick="submitToggle($(this).data(\'category\'), this.id)"><span class="slider round"></span></label></p></div>'
+		);
+		// Make checked if it's visible
+		if (json.stream_service[key].display != 'none') {
+			$('#' + key).attr('checked', 'checked');
+		}
+	}
 });
 
 // Handle post requests from toggles
