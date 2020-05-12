@@ -87,6 +87,13 @@ app.get('/config', function(req, res) {
 	//console.log('Config requested');
 });
 
+// View Counter Page
+// Master page
+// This requires the second piece of authorization middleware
+app.get('/viewer', authMiddleware.adminAuth, function(req, res) {
+	res.sendFile(__dirname + '/public/pages/viewer.html');
+});
+
 // Master page
 // This requires the second piece of authorization middleware
 app.get('/master', authMiddleware.adminAuth, function(req, res) {
@@ -132,11 +139,61 @@ app.get('/logout', function(req, res) {
 
 // This takes the server as an argument so that it's listening
 const wss = new Server({ server });
+// Not a great implementation for counting viewers on each track, but
+// it will do in a pinch.
+var COUNTER = [
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+];
+
+// Page viewer connections
+// Fix this to remove extra viewers when they disconnect
+var VIEWERS = [];
 
 // This listens for and logs connections and disconnections.
 wss.on('connection', (ws) => {
 	console.log('Client connected');
-	ws.on('close', () => console.log('Client disconnected'));
+
+	// Message received from client. Only useful for page view counter
+	ws.on('message', function incoming(message) {
+		var jsonObj = JSON.parse(message);
+
+		if (jsonObj.type == 'viewer') {
+			ws.send(COUNTER.toString());
+			VIEWERS.push(ws);
+		}
+
+		if (jsonObj.type == 'counter') {
+			// Update counter
+			ws.track = jsonObj.track;
+			COUNTER[ws.track] = COUNTER[ws.track] + 1;
+			// Update views page
+			if (VIEWERS.length > 0) {
+				VIEWERS.forEach((viewer) => {
+					viewer.send(COUNTER.toString());
+				});
+			}
+		}
+	});
+
+	ws.on('close', function() {
+		console.log('Client disconnected');
+		// Update counter
+		COUNTER[ws.track] = COUNTER[ws.track] - 1;
+		// Update views page
+		if (VIEWERS.length > 0) {
+			VIEWERS.forEach((viewer) => {
+				viewer.send(COUNTER.toString());
+			});
+		}
+	});
 });
 
 // This gives a "Page Not Found" Error. It's the last get request so

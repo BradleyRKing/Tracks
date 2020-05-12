@@ -84,8 +84,20 @@
       "label": "World of Text",
       "display": "none"
     },
-    "slideshow": {
-      "label": "Slideshow",
+    "mac_q1": {
+      "label": "Mac Q1",
+      "display": "none"
+    },
+    "mac_q2": {
+      "label": "Mac Q2",
+      "display": "none"
+    },
+    "mac_q3": {
+      "label": "Mac Q3",
+      "display": "none"
+    },
+    "script_1": {
+      "label": "Scripts",
       "display": "none"
     },
     "end_survey": {

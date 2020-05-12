@@ -53,30 +53,26 @@
                         </iframe>
                     </div>
 
-
-                    <!--Slideshow-->
-                    <div id="slideshow">
-                        <iframe
-                            src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=subway&sort=0&by=keywords&theme=default&scale=fill&speed=15000&limit=10&skin=default&autoplay=false"
-                            scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true"
-                            mozallowfullscreen="true">
-                            <p><a rel="nofollow" href="https://www.vouchersort.co.uk">at Vouchersort</a></p>
-                            <small>Powered
-                                by <a href="https://flickrembed.com">flickr embed</a>.</small>
-                        </iframe>
+                    <!--Question 1-->
+                    <div id="mac_q1">
+                        <p>Question 1</p><br><br>
                     </div>
-                    <script type="text/javascript">
-                        function showpics() {
-                            var a = $("#box").val();
-                            $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" + a +
-                                "&tagmode=any&format=json&jsoncallback=?",
-                                function (a) {
-                                    $("#images").hide().html(a).fadeIn("fast"), $.each(a.items, function (a, e) {
-                                        $("<img/>").attr("src", e.media.m).appendTo("#images")
-                                    })
-                                })
-                        }
-                    </script>
+
+                    <!--Question 2-->
+                    <div id="mac_q2">
+                        <p>Question 2</p><br><br>
+                    </div>
+
+                    <!--Question 3-->
+                    <div id="mac_q3">
+                        <p>Question 3</p><br><br>
+                    </div>
+
+                    <!-- Scripts -->
+                    <div id="script_1">
+                        <p>Script Placeholder</p><br><br>
+                        <p>Audio to go here as well.</p><br><br>
+                    </div>
 
                     <!--Survey-->
                     <div id="end_survey">
