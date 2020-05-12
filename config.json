@@ -55,24 +55,28 @@
       "display": "block"
     },
     "poll_q4": {
-      "label": "Niuboi Q1",
-      "display": "none"
+      "label": "Anthony Q4",
+      "display": "block"
     },
     "poll_q5": {
-      "label": "Niuboi Q2",
-      "display": "none"
+      "label": "Niuboi Q1",
+      "display": "block"
     },
     "poll_q6": {
-      "label": "Niuboi Q3",
-      "display": "none"
+      "label": "Niuboi Q2",
+      "display": "block"
     },
     "poll_q7": {
-      "label": "Niuboi Q4",
-      "display": "none"
+      "label": "Niuboi Q3",
+      "display": "block"
     },
     "poll_q8": {
+      "label": "Niuboi Q4",
+      "display": "block"
+    },
+    "poll_q9": {
       "label": "Niuboi Q5",
-      "display": "none"
+      "display": "block"
     }
   },
   "home_page_interactive": {
