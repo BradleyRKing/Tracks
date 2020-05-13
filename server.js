@@ -157,10 +157,27 @@ var COUNTER = [
 // Fix this to remove extra viewers when they disconnect
 var VIEWERS = [];
 
+// We need to keep the signal alive, or else it will close. These functions wil assist with that.
+// Empty function to send
+function noop() {}
+
+// This sets the "alive" status of a websocket
+function heartbeat() {
+	this.isAlive = true;
+}
+
 // This listens for and logs connections and disconnections.
 wss.on('connection', (ws) => {
 	console.log('Client connected');
 
+	// Set the alive status
+	ws.isAlive = true;
+
+	// If a pong is received from a ping, ensure that the socket is alive
+	// Pong messages are automatically send after a ping
+	ws.on('pong', heartbeat);
+
+	// This is to update the page counter
 	// Message received from client. Only useful for page view counter
 	ws.on('message', function incoming(message) {
 		var jsonObj = JSON.parse(message);
@@ -184,6 +201,7 @@ wss.on('connection', (ws) => {
 	});
 
 	ws.on('close', function() {
+		clearInterval(interval);
 		console.log('Client disconnected');
 		// Update counter
 		COUNTER[ws.track] = COUNTER[ws.track] - 1;
@@ -194,6 +212,20 @@ wss.on('connection', (ws) => {
 			});
 		}
 	});
+});
+
+// Ping the client every 30 seconds
+const interval = setInterval(function ping() {
+	wss.clients.forEach(function each(ws) {
+		if (ws.isAlive === false) return ws.terminate();
+		ws.isAlive = false;
+		ws.ping(noop);
+	});
+}, 15000);
+
+// Clear the interval on close.
+wss.on('close', function close() {
+	clearInterval(interval);
 });
 
 // This gives a "Page Not Found" Error. It's the last get request so

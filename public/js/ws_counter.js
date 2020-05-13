@@ -14,8 +14,3 @@ var message = {
 ws.onopen = function open() {
 	ws.send(JSON.stringify(message));
 };
-
-// This makes things appear as toggled on the backend page.
-ws.onmessage = function(ID) {
-	$('#' + ID.data).toggle(1500);
-};
