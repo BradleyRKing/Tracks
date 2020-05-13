@@ -106,6 +106,8 @@ app.post('/master', function(req, res) {
 	var category = req.body.category;
 	var ID = req.body.ID;
 
+	console.log('Received request: ', category, ' , ', ID);
+
 	// This edits the config file when requests come from the master page
 	let file = editJsonFile(`${__dirname}/config.json`);
 	if (file.get(`${category}.${ID}`).display == 'none') {
@@ -169,6 +171,7 @@ function heartbeat() {
 // This listens for and logs connections and disconnections.
 wss.on('connection', (ws) => {
 	console.log('Client connected');
+	console.log('Total Sockets: ', wss.clients.size);
 
 	// Set the alive status
 	ws.isAlive = true;
