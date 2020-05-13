@@ -35,7 +35,8 @@
                         <video id="Mac_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
                             controls preload="auto" poster="../images/Tracks_Poster.jpg"
                             data-setup='{"liveui": true, "autoplay": true, "notSupportedMessage": "The stream has not started yet. Try refreshing the page." , "suppressNotSupportedError": true}'>
-                            <source src="http://157.245.180.32:8000/live/Mac/index.m3u8" type="application/x-mpegURL" />
+                            <source src="https://bradleyrking.ca:8443/live/Mac/index.m3u8"
+                                type="application/x-mpegURL" />
                             <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to
                                 a
                                 web
@@ -43,14 +44,6 @@
                                     HTML5
                                     video</a></p>
                         </video>
-                    </div>
-
-
-                    <!--World of Text-->
-                    <div id='worldOfText' style="visibility: hidden;">
-                        <iframe src="https://www.yourworldoftext.com/~Bradley.King/tracks"
-                            style="width: 560px; height: 315px;">
-                        </iframe>
                     </div>
 
                     <!--Question 1-->
@@ -70,8 +63,18 @@
 
                     <!-- Scripts -->
                     <div id="script_1">
-                        <p>Script Placeholder</p><br><br>
-                        <p>Audio to go here as well.</p><br><br>
+                        <iframe src="../pdfs/script_1.pdf#toolbar=0" width="100%" height="500px">
+                        </iframe>
+                    </div>
+
+                    <div id="script_2">
+                        <iframe src="../pdfs/script_2.pdf#toolbar=0" width="100%" height="500px">
+                        </iframe>
+                    </div>
+
+                    <div id="script_3">
+                        <iframe src="../pdfs/script_3.pdf#toolbar=0" width="100%" height="500px">
+                        </iframe>
                     </div>
 
                     <!--Survey-->

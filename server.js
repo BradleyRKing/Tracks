@@ -7,11 +7,20 @@ const editJsonFile = require('edit-json-file');
 var session = require('express-session');
 var authMiddleware = require('./middleware/auth');
 const dotenv = require('dotenv');
+var cors = require('cors');
 dotenv.config();
 
 const tracks = require('./routes/tracks');
 
 const app = express();
+
+// Allow content from other origins
+app.use(cors());
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 
 // Use to handle post requests
 app.use(bodyParser.urlencoded({ extended: false }));

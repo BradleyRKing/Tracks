@@ -80,10 +80,6 @@
     }
   },
   "home_page_interactive": {
-    "worldOfText": {
-      "label": "World of Text",
-      "display": "none"
-    },
     "mac_q1": {
       "label": "Mac Q1",
       "display": "none"
@@ -97,7 +93,15 @@
       "display": "none"
     },
     "script_1": {
-      "label": "Scripts",
+      "label": "Script 1",
+      "display": "none"
+    },
+    "script_2": {
+      "label": "Script 2",
+      "display": "none"
+    },
+    "script_3": {
+      "label": "Script 3",
       "display": "none"
     },
     "end_survey": {
