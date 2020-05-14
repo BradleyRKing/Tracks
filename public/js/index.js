@@ -39,10 +39,8 @@ $(window).on('load', function() {
 				$('#' + key).css('display', json[category][key].display);
 			}
 		}
+
+		// This is placed in here so it happens after everything else loads.
+		$('body').hide().css('visibility', 'visible').fadeIn('3000');
 	});
-	// Fade in when the body has been updated.
-	// We do it this way (rather than display:none) so that world of text loads properly
-	// WOT has issues if it starts as display:none because of width calculations.
-	$('.script').css('visibility', 'visible').hide();
-	$('body').hide().css('visibility', 'visible').fadeIn('3000');
 });

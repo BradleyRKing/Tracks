@@ -86,7 +86,7 @@ iframe {
 }
 
 .script {
-    display: flex;
+    display: block;
     margin: 25px auto;
     padding: 5px;
     color: white;
@@ -95,6 +95,7 @@ iframe {
     height: 340px;
     border: 1px solid grey;
     overflow: scroll;
+    overflow-x: hidden;
 
     p {
         font-family: "Courier New", Courier, monospace;
