@@ -43,6 +43,6 @@ $(window).on('load', function() {
 	// Fade in when the body has been updated.
 	// We do it this way (rather than display:none) so that world of text loads properly
 	// WOT has issues if it starts as display:none because of width calculations.
-	$('#worldOfText').css('visibility', 'visible').hide();
+	$('.script').css('visibility', 'visible').hide();
 	$('body').hide().css('visibility', 'visible').fadeIn('3000');
 });
