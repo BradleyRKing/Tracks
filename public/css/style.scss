@@ -54,8 +54,17 @@ u {
     text-decoration-color: $base-colour;
 }
 
-audio {
-    text-align: center;
+table {
+    display: block;
+    margin: 10px auto;
+    font-family: 'Bungee Hairline';
+
+    td,
+    th {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid grey;
+    }
 }
 
 iframe {
@@ -74,6 +83,31 @@ iframe {
     width: 560px;
     max-width: $max-width;
     height: 340px;
+}
+
+.script {
+    display: flex;
+    margin: 25px auto;
+    padding: 5px;
+    color: white;
+    width: 560px;
+    max-width: $max-width;
+    height: 340px;
+    border: 1px solid grey;
+    overflow: scroll;
+
+    p {
+        font-family: "Courier New", Courier, monospace;
+        text-align: left;
+    }
+
+    .centered {
+        text-align: center;
+    }
+
+    .speech {
+        margin: 0px 50px;
+    }
 }
 
 //span {
