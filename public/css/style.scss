@@ -76,13 +76,19 @@ iframe {
     height: 340px;
 }
 
+.chat {
+    iframe {
+        height: 300px;
+        margin: 0px auto 10px auto;
+    }
+}
+
 .stream {
     display: flex;
     margin: 25px auto;
     color: black;
     width: 560px;
     max-width: $max-width;
-    height: 340px;
 }
 
 .script {
@@ -120,6 +126,37 @@ iframe {
     justify-content: center;
     align-content: center;
     padding: 0px;
+}
+
+.credits {
+    p {
+        font-family: "Courier New", Courier, monospace;
+        text-align: left;
+        ;
+    }
+
+    div {
+        margin: 15px auto;
+        overflow: auto;
+        width: 50%;
+        min-width: 400px;
+    }
+
+    .left {
+        margin-right: 10px;
+        margin-bottom: 0px;
+        float: left;
+        width: 200px;
+        height: 200px;
+    }
+
+    .right {
+        margin-left: 10px;
+        margin-bottom: 0px;
+        float: right;
+        width: 200px;
+        height: 200px;
+    }
 }
 
 /* This will keep the footer at the bottom */
@@ -223,6 +260,11 @@ a {
     }
 }
 
+// Requested to remove that mixin, and make it a static glow
+@mixin static_glow($neon-dark, $neon-light, $parent) {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $neon-dark, 0 0 40px $neon-dark, 0 0 50px $neon-dark, 0 0 60px $neon-dark, 0 0 70px $neon-dark;
+}
+
 // Classes for themes
 .default {
     $parent: 'default';
@@ -234,6 +276,7 @@ a {
     h1 {
         @include keyframes($neon-dark, $neon-light, $parent);
         @include glow($parent);
+        //@include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -246,8 +289,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        // @include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -260,8 +304,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -274,8 +319,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -288,8 +334,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -302,8 +349,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        // @include keyframes($neon-dark, $neon-light, $parent);
+        // @include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -316,8 +364,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -330,8 +379,9 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -344,7 +394,8 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }

@@ -104,8 +104,8 @@
       "label": "Script 3",
       "display": "none"
     },
-    "end_survey": {
-      "label": "End Survey",
+    "home_chat": {
+      "label": "Home Chat",
       "display": "none"
     }
   },
@@ -136,11 +136,11 @@
     },
     "asia_yt": {
       "label": "Asia YouTube",
-      "display": "block"
+      "display": "none"
     },
     "asia_vjs": {
       "label": "Asia Video.js",
-      "display": "none"
+      "display": "block"
     },
     "fatmi_yt": {
       "label": "Fatmi YouTube",
