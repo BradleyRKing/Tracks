@@ -6,23 +6,35 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="icon" href="../images/icon-web.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../js/load_config.js"></script>
-        <script src="../js/websocket.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
         <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
         <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
+        <script src="../js/load_config.js"></script>
         <title>Tracks</title>
     </head>
 
     <body style="display: none;" class="track-1">
         <h1 class='glow'>Anthony</h1>
-        <!-- YouTube Live Stream-->
-        <div id="anthony_yt">
-            <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/live_stream?channel=UCVT2fBEAQH0W6uF2y5hTOaA" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+
+        <!-- The Modal -->
+        <div id="anthony_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Woops!</h2>
+                </div>
+                <div class="modal-body">
+                    <h2>We're having some technical difficulties.</h2>
+                </div>
+                <div class="modal-footer">
+                    <h2>Please head home and try again</h2>
+                </div>
+            </div>
+
         </div>
+
         <!-- VideoJS Live Stream -->
         <div id="anthony_vjs" class="stream">
             <video id="Anthony_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
@@ -74,6 +86,13 @@
         <div class='centre-wrapper'>
             <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
         </div>
+
+        <footer id='footer'><a href="../pages/support.html">
+                <p>Support</p>
+            </a>
+        </footer>
+
+        <script src="../js/websocket.js"></script>
     </body>
 
 </html>

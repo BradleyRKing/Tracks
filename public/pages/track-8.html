@@ -10,20 +10,32 @@
         <link rel="icon" href="../images/icon-web.png">
         <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
         <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
-        <script src="../js/ws_counter.js"></script>
         <title>Tracks</title>
     </head>
 
     <body style="display: none;" class="track-8">
         <h1 class='glow'>Marguerite</h1>
-        <!-- YouTube Live Stream-->
-        <div id="marguerite_yt">
-            <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/live_stream?channel=UCDCY-A1xqilW7ub7Uem33OQ" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+
+        <!-- The Modal -->
+        <div id="marguerite_modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Woops!</h2>
+                </div>
+                <div class="modal-body">
+                    <h2>We're having some technical difficulties.</h2>
+                </div>
+                <div class="modal-footer">
+                    <h2>Please head home and try again</h2>
+                </div>
+            </div>
+
         </div>
 
+        <!-- VideoJS Live Stream -->
         <div id="marguerite_vjs" class="stream">
             <video id="Marguerite_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
                 preload="auto" poster="../images/Tracks_Poster.jpg" data-setup='{"liveui": true, "autoplay": true}'>
@@ -40,6 +52,13 @@
         <div class='centre-wrapper'>
             <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
         </div>
+
+        <footer id='footer'><a href="../pages/support.html">
+                <p>Support</p>
+            </a>
+        </footer>
+
+        <script src="../js/websocket.js"></script>
     </body>
 
 </html>

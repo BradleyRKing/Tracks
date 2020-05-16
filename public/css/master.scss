@@ -64,6 +64,13 @@
      border-radius: 50%;
  }
 
+ // Update box (for notifications)
+ .update-box {
+     position: absolute;
+     right: 20;
+     top: 20;
+ }
+
  /* Button grid */
  #buttonWrapper {
      display: grid;

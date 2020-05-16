@@ -114,27 +114,46 @@ app.get('/master', authMiddleware.adminAuth, function(req, res) {
 app.post('/master', function(req, res) {
 	var category = req.body.category;
 	var ID = req.body.ID;
+	var status = '';
 
-	console.log('Received request: ', category, ' , ', ID);
+	console.log('Received request:', category, ',', ID);
 
 	// This edits the config file when requests come from the master page
 	let file = editJsonFile(`${__dirname}/config.json`);
 	if (file.get(`${category}.${ID}`).display == 'none') {
+		// Set's whether it is turning on or off
+		// 'none' means it's turning on
+		status = 'on';
+
+		// Change CSS display depending on element
 		if (category == 'track_buttons') {
 			file.set(`${category}.${ID}.display`, 'inline-flex');
 		} else {
 			file.set(`${category}.${ID}.display`, 'block');
 		}
 	} else {
+		status = 'off';
 		file.set(`${category}.${ID}.display`, 'none');
 	}
 	file.save();
 
-	// Update main page
-	// Websocket required here.
-	wss.clients.forEach((client) => {
-		client.send(ID);
-	});
+	// Update HTML to show elements with the ID
+	// This is only send to audience members
+	if (Object.keys(clientObj.audience).length > 0) {
+		Object.keys(clientObj.audience).forEach((client) => {
+			clientObj.audience[client].send(ID);
+		});
+	}
+
+	// Similarly, send it back to the master clients
+	// This ensures the toggle state remains the same, even
+	// if multiple users are managing the controls, and it
+	// ensures that the user knows the change succeeded.
+	if (Object.keys(clientObj.master).length > 0) {
+		Object.keys(clientObj.master).forEach((client) => {
+			clientObj.master[client].send(JSON.stringify({ id: ID, status: status }));
+		});
+	}
 
 	res.end();
 });
@@ -164,11 +183,17 @@ var COUNTER = [
 	0
 ];
 
-// Page viewer connections
-// Fix this to remove extra viewers when they disconnect
-var VIEWERS = [];
+// Websocket objects, used to store different types of clients
+// (so we can message specific clients depending on their use)
+// We'll use a very rudimentary ID system
+var clientObj = { audience: {}, viewer: {}, master: {} };
+//var viewerObj = {};
+//var masterObj = {};
 
-// We need to keep the signal alive, or else it will close. These functions wil assist with that.
+// ID variable. This will increment with each new socket
+var wsId = 0;
+
+// We need to keep the signal alive, or else it will close.
 // Empty function to send
 function noop() {}
 
@@ -182,45 +207,81 @@ wss.on('connection', (ws) => {
 	console.log('Client connected');
 	console.log('Total Sockets: ', wss.clients.size);
 
+	// Set websocket ID
+	ws.id = wsId;
+
+	// Increment ID
+	wsId++;
+
 	// Set the alive status
 	ws.isAlive = true;
 
 	// If a pong is received from a ping, ensure that the socket is alive
 	// Pong messages are automatically send after a ping
+	// This keeps the socket connection alive. If there is no pong,
+	// the socket will be terminated (see below)
 	ws.on('pong', heartbeat);
 
-	// This is to update the page counter
+	// This does a few things.
 	// Message received from client. Only useful for page view counter
+	// The messages are always a json string with a type (counter, viewer, master)
 	ws.on('message', function incoming(message) {
 		var jsonObj = JSON.parse(message);
 
-		if (jsonObj.type == 'viewer') {
-			ws.send(COUNTER.toString());
-			VIEWERS.push(ws);
-		}
-
+		// This comes from the home page and track pages
+		// It's used to keep track of viewers on each page
+		// The jsonObj will include a track number to determine which track
+		// the client is viewing (track 0 is the home page)
 		if (jsonObj.type == 'counter') {
-			// Update counter
+			// Set the client type
+			ws.type = 'audience';
+
+			// We add this item to reduce the counter at disconnect
 			ws.track = jsonObj.track;
 			COUNTER[ws.track] = COUNTER[ws.track] + 1;
+
 			// Update views page
-			if (VIEWERS.length > 0) {
-				VIEWERS.forEach((viewer) => {
-					viewer.send(COUNTER.toString());
+			// This only sends to the viewer clients
+			if (Object.keys(clientObj.viewer).length > 0) {
+				Object.keys(clientObj.viewer).forEach((client) => {
+					clientObj.viewer[client].send(COUNTER.toString());
 				});
 			}
+		} else if (jsonObj.type == 'viewer') {
+			// Set the client type
+			ws.type = 'viewer';
+
+			// Send the counter array to initialize the page
+			// This isn't looped (unlike above) because this is an initialization,
+			// not an update
+			ws.send(COUNTER.toString());
+		} else if (jsonObj.type == 'master') {
+			// Set the client type
+			ws.type = 'master';
+		} else {
+			// There's only these types, so any extras should be rejected
+			ws.close();
 		}
+
+		// Now that the client type has been set, save the websocket to the
+		// audienceObj, for quick recalls.
+		clientObj[ws.type][ws.id] = ws;
+		//console.log(clientObj);
 	});
 
+	// Closing function. This removes the entry from the clientObj as well
 	ws.on('close', function() {
-		clearInterval(interval);
 		console.log('Client disconnected');
+
+		// Remove from clientObj
+		delete clientObj[ws.type][ws.id];
+
 		// Update counter
 		COUNTER[ws.track] = COUNTER[ws.track] - 1;
 		// Update views page
-		if (VIEWERS.length > 0) {
-			VIEWERS.forEach((viewer) => {
-				viewer.send(COUNTER.toString());
+		if (Object.keys(clientObj.viewer).length > 0) {
+			Object.keys(clientObj.viewer).forEach((client) => {
+				clientObj.viewer[client].send(COUNTER.toString());
 			});
 		}
 	});
@@ -229,13 +290,29 @@ wss.on('connection', (ws) => {
 // Ping the client every 30 seconds
 const interval = setInterval(function ping() {
 	wss.clients.forEach(function each(ws) {
-		if (ws.isAlive === false) return ws.terminate();
+		// Terminate hanging sockets.
+		if (ws.isAlive === false) {
+			// Remove from clientObj
+			// Occasionally, one slips through without an ID, so we check first.
+			if (ws.id) {
+				delete clientObj[ws.type][ws.id];
+				return ws.terminate();
+			} else {
+				return ws.terminate();
+			}
+		}
 		ws.isAlive = false;
 		ws.ping(noop);
 	});
-}, 15000);
 
-// Clear the interval on close.
+	// Show me how many clients are left
+	console.log('Audience Clients:', Object.keys(clientObj.audience).length);
+	console.log('Master Clients:', Object.keys(clientObj.master).length);
+	console.log('Viewer Clients:', Object.keys(clientObj.viewer).length);
+}, 30000);
+
+// Clear the interval on close (so it quits pinging the clients).
+// This is when the server closes, not the individual sockets
 wss.on('close', function close() {
 	clearInterval(interval);
 });

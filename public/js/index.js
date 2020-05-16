@@ -2,19 +2,6 @@
 $(window).on('load', function() {
 	$.getJSON('/config', function(json) {
 		for (var key in json.track_buttons) {
-			/*
-			$('#track-buttons').append(
-				'<a id=' +
-					key +
-					' href="pages/track-' +
-					key.slice(-1) +
-					'.html"><button class="button"><span>' +
-					json.track_buttons[key].artist +
-					'</span><img src="images/' +
-					json.track_buttons[key].icon +
-					'"></button></a>'
-			);*/
-
 			$('#track-buttons').append(
 				'<form id="' +
 					key +

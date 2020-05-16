@@ -48,16 +48,16 @@ $.getJSON('/config', function(json) {
 	}
 
 	// Video Player
-	for (var key in json.stream_service) {
+	for (var key in json.modals) {
 		$('#playerWrapper').append(
 			'<div style="padding: 10px;"><p>' +
-				json.stream_service[key].label +
+				json.modals[key].label +
 				'<br><br><label class="switch"><input type="checkbox" id="' +
 				key +
-				'" data-category="stream_service" onclick="submitToggle($(this).data(\'category\'), this.id)"><span class="slider round"></span></label></p></div>'
+				'" data-category="modals" onclick="submitToggle($(this).data(\'category\'), this.id)"><span class="slider round"></span></label></p></div>'
 		);
 		// Make checked if it's visible
-		if (json.stream_service[key].display != 'none') {
+		if (json.modals[key].display != 'none') {
 			$('#' + key).attr('checked', 'checked');
 		}
 	}

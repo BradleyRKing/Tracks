@@ -17,8 +17,16 @@ function connect() {
 
 	// This makes things appear as toggled on the backend page.
 	ws.onmessage = function(ID) {
-		console.log('Updating ', ID.data);
-		$('#' + ID.data).toggle(1500);
+		console.log('Updating', ID.data);
+		if (ID.data.includes('modal')) {
+			if (document.getElementById(ID.data).style.display == 'none') {
+				document.getElementById(ID.data).style.display = 'block';
+			} else {
+				document.getElementById(ID.data).style.display = 'none';
+			}
+		} else {
+			$('#' + ID.data).toggle(1500);
+		}
 	};
 
 	// Handling some issues with sockets closing.
@@ -36,3 +44,22 @@ function connect() {
 }
 
 connect();
+
+// Modal script
+// Get the modal
+var modal = document.getElementsByClassName('modal')[0];
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName('close')[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+	modal.style.display = 'none';
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = 'none';
+	}
+};
