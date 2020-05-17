@@ -24,6 +24,8 @@ function connect() {
 			} else {
 				document.getElementById(ID.data).style.display = 'none';
 			}
+		} else if (ID.data.includes('script')) {
+			$('#' + ID.data).toggle(3000);
 		} else {
 			$('#' + ID.data).toggle(1500);
 		}

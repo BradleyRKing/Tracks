@@ -14,49 +14,55 @@
     </head>
 
     <body style="display: none;" class="track-4">
-        <h1 class='glow'>Fatmi</h1>
+        <div id="page-container">
+            <div id="content-wrap">
+                <h1 class='glow'>Fatmi</h1>
 
-        <!-- The Modal -->
-        <div id="fatmi_modal" class="modal">
+                <!-- The Modal -->
+                <div id="fatmi_modal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Woops!</h2>
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Woops!</h2>
+                        </div>
+                        <div class="modal-body">
+                            <h2>We're having some technical difficulties.</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <h2>Please head home and try again</h2>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <h2>We're having some technical difficulties.</h2>
+
+                <!-- VideoJS Live Stream -->
+                <div is="fatmi_vjs" class="stream">
+                    <video id="Fatmi_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
+                        preload="auto" poster="../images/Tracks_Poster.jpg"
+                        data-setup='{"liveui": true, "autoplay": true}'>
+                        <source src="https://bradleyrking.ca:8443/live/Fatmi/index.m3u8" type="application/x-mpegURL" />
+                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to
+                            a
+                            web
+                            browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                HTML5
+                                video</a></p>
+                    </video>
                 </div>
-                <div class="modal-footer">
-                    <h2>Please head home and try again</h2>
+
+                <div class='centre-wrapper'>
+                    <a href="../home"><button class="button"><span>Home</span><img
+                                src="../images/house_white.svg"></button></a>
                 </div>
             </div>
 
+            <footer id='footer'><a href="../pages/support.html">
+                    <p>Support</p>
+                </a>
+            </footer>
         </div>
-
-        <!-- VideoJS Live Stream -->
-        <div is="fatmi_vjs" class="stream">
-            <video id="Fatmi_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
-                preload="auto" poster="../images/Tracks_Poster.jpg" data-setup='{"liveui": true, "autoplay": true}'>
-                <source src="https://bradleyrking.ca:8443/live/Fatmi/index.m3u8" type="application/x-mpegURL" />
-                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to
-                    a
-                    web
-                    browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
-                        HTML5
-                        video</a></p>
-            </video>
-        </div>
-
-        <div class='centre-wrapper'>
-            <a href="../home"><button class="button"><span>Home</span><img src="../images/house_white.svg"></button></a>
-        </div>
-
-        <footer id='footer'><a href="../pages/support.html">
-                <p>Support</p>
-            </a>
-        </footer>
 
         <script src="../js/websocket.js"></script>
     </body>
