@@ -80,6 +80,10 @@
     }
   },
   "home_page_interactive": {
+    "music": {
+      "label": "Music",
+      "display": "block"
+    },
     "mac_q1": {
       "label": "Mac Q1",
       "display": "none"
