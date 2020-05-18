@@ -274,7 +274,13 @@ wss.on('connection', (ws) => {
 		console.log('Client disconnected');
 
 		// Remove from clientObj
-		delete clientObj[ws.type][ws.id];
+		//delete clientObj[ws.type][ws.id];
+		console.log('Device ID:', ws.id);
+		console.log('Client Type:', ws.type);
+		console.log('Check Delete Logic: ', ws.hasOwnProperty('id') && ws.hasOwnProperty('type'));
+		if (ws.hasOwnProperty('id') && ws.hasOwnProperty('type')) {
+			delete clientObj[ws.type][ws.id];
+		}
 
 		// Update counter
 		COUNTER[ws.track] = COUNTER[ws.track] - 1;
