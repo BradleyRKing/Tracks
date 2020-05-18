@@ -114,6 +114,10 @@
     }
   },
   "modals": {
+    "mac_modal": {
+      "label": "Mac Modal",
+      "display": "none"
+    },
     "anthony_modal": {
       "label": "Anthony Modal",
       "display": "none"

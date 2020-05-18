@@ -17,6 +17,7 @@ $.getJSON('/config', function(json) {
 		}
 	}
 
+	/*
 	// Poll buttons
 	for (var key in json.track_polls) {
 		$('#pollWrapper').append(
@@ -30,7 +31,7 @@ $.getJSON('/config', function(json) {
 		if (json.track_polls[key].display != 'none') {
 			$('#' + key).attr('checked', 'checked');
 		}
-	}
+	}*/
 
 	// Home page interactive pieces
 	for (var key in json.home_page_interactive) {

@@ -17,8 +17,20 @@ $(window).on('load', function() {
 			);
 			$('#' + key).css('display', json.track_buttons[key].display);
 		}
+
+		// Everything else
+		for (var category in json) {
+			if (category != 'track_buttons') {
+				for (var key in json[category]) {
+					$('#' + key).css('display', json[category][key].display);
+				}
+			}
+		}
+		$('body').hide().css('visibility', 'visible').fadeIn('3000');
 	});
 
+	// What is this doing here?
+	/*
 	$.getJSON('/config', function(json) {
 		// Load buttons
 		for (var category in json) {
@@ -30,4 +42,5 @@ $(window).on('load', function() {
 		// This is placed in here so it happens after everything else loads.
 		$('body').hide().css('visibility', 'visible').fadeIn('3000');
 	});
+	*/
 });
