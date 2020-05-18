@@ -294,7 +294,10 @@ const interval = setInterval(function ping() {
 		if (ws.isAlive === false) {
 			// Remove from clientObj
 			// Occasionally, one slips through without an ID, so we check first.
-			if (ws.id) {
+			console.log('Device ID:', ws.id);
+			console.log('Client Type:', ws.type);
+			console.log('Check Delete Logic: ', ws.hasOwnProperty('id') && ws.hasOwnProperty('type'));
+			if (ws.hasOwnProperty('id') && ws.hasOwnProperty('type')) {
 				delete clientObj[ws.type][ws.id];
 				return ws.terminate();
 			} else {
