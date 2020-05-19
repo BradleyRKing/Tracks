@@ -163,10 +163,12 @@ iframe {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    max-width: 100%;
 
     img {
         max-height: 100px;
+        min-width: 0; // Needed for Chrome
+        object-fit: contain;
     }
 }
 
