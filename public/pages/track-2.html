@@ -5,24 +5,108 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../js/fade.js"></script>
+        <script src="../js/load_config.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
         <link rel="icon" href="../images/icon-web.png">
+        <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
+        <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
         <title>Tracks</title>
     </head>
 
     <body style="display: none;" class="track-2">
-        <h1 class='glow'>Track 2</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/n0E_aZ5C0x8" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="page-container">
+            <div id="content-wrap">
+                <h1 class='glow'>Niuboi</h1>
 
-        <iframe src="https://www.yourworldoftext.com/tracksheyoo" style="width: 560px; height: 315px">
-        </iframe>
+                <!-- The Modal -->
+                <div id="niuboi_modal" class="modal">
 
-        <div class='centre-wrapper'>
-            <a href="../home"><button class="button"><span>Home</span><img src="images/house_white.svg"></button></a>
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Woops!</h2>
+                        </div>
+                        <div class="modal-body">
+                            <h2>We're having some technical difficulties.</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <h2>Please head home and try again</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VideoJS Live Stream -->
+                <div id="niuboi_vjs" class="stream" style="margin-bottom: auto; padding: 0px;">
+                    <video id="Niuboi_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
+                        preload="auto" poster="../images/Tracks_Poster.jpg"
+                        data-setup='{"liveui": true, "autoplay": true}'>
+                        <source src="https://bradleyrking.ca:8443/live/Niuboi/index.m3u8"
+                            type="application/x-mpegURL" />
+                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to
+                            a
+                            web
+                            browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                HTML5
+                                video</a></p>
+                    </video>
+                </div>
+
+                <!-- Minnit Chat-->
+                <div class="chat">
+                    <iframe src="https://minnit.chat/tracksniuboi?embed&nickname=" style="border:none;"
+                        allowTransparency="true"></iframe>
+                </div>
+
+                <!--
+                <div class='centre-wrapper' style="flex-direction: column;">
+                    <div id="poll_q5">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdwXmgrLjUfjvEFw_KwdFCwdlKXjkZ2mMaijpWrAD9TgJLVww/viewform?embedded=true"
+                            frameborder="0" marginheight="0" marginwidth="0"
+                            style="width: 622px; height: 375px;">Loading…</iframe>
+                    </div>
+                    <div id="poll_q6">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScWgjL9hcSzsTs7YyLAuZ8VIk4jeVV8yY-rKPXr9S2x49vhAg/viewform?embedded=true"
+                            style="width: 622px; height: 375px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+                    <div id='poll_q7'>
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScNZUnDgCllv62QfMb2GY0yhMHITnwxuwDRWfnOIUSMtj2-Hw/viewform?embedded=true"
+                            style="width: 622px; height: 375px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+                    <div id="poll_q8">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScgXsWq8o65AS8f7tVMFeJUAwMMKUHfZOD5if9ApBp7ks_LeQ/viewform?embedded=true"
+                            frameborder="0" marginheight="0" marginwidth="0"
+                            style="width: 622px; height: 375px;">Loading…</iframe>
+                    </div>
+                    <div id="poll_q9">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdiwBPlzfKhqGSQaTTaQdI8r5PGoG-o-FFA992c4nvZe9Gn5A/viewform?embedded=true"
+                            style="width: 622px; height: 375px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+                </div>
+                -->
+
+                <div class='centre-wrapper'>
+                    <a href="../home"><button class="button"><span>Home</span><img
+                                src="../images/house_white.svg"></button></a>
+                </div>
+            </div>
+
+            <footer id='footer'><a href="../pages/support.html">
+                    <p>Support</p>
+                </a>
+            </footer>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-        <script type="text/babel" src="javascript.js"></script>
+        <script src="../js/websocket.js"></script>
     </body>
+
+</html>

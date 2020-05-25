@@ -13,6 +13,10 @@
   height: 85%;
 }
 
+form {
+  display: block !important;
+}
+
 .login-form {
   width: 300px;
   margin: 0 auto;

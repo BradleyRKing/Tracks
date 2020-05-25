@@ -3,44 +3,263 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="icon" href="../images/icon-web.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
-        <script src="js/load_config.js"></script>
-        <script src="js/websocket.js"></script>
+        <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
+        <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
+        <script src="../js/websocket.js"></script>
+        <script src="../js/index.js"></script>
         <title>Tracks</title>
     </head>
 
-    <body style="display: none;" class='default'>
-        <h1 class='glow'>Tracks</h1>
-        <br>
-        <h2 style="font-size: 1em;">A <u id='company'>Vena Amoris Projects</u> production</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/21X5lGlDOfg" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <body style="visibility: hidden;" class='default'>
+        <div id="page-container">
+            <div id="content-wrap">
+                <h1 class='glow'>Tracks</h1>
+                <br>
+                <h2 style="font-size: 1em;">A <u id='company'>Vena Amoris Projects</u> production</h2>
 
-        <div class='centre-wrapper'>
-            <a id="track1" href="pages/track-1.html"><button class="button"><span>Track 1</span><img
-                        src="images/polaroid_white.svg"></button></a>
-            <a id="track2" href="pages/track-2.html"><button class="button"><span>Track 2</span><img
-                        src="images/tv_white.svg"></button></a>
-            <a id="track3" href="pages/track-3.html"><button class="button"><span>Track 3</span><img
-                        src="images/controller_white.svg"></button></a>
-            <a id="track4" href="pages/track-4.html"><button class="button"><span>Track 4</span><img
-                        src="images/carousel_white.svg"></button></a>
-            <a id="track5" href="pages/track-5.html"><button class="button"><span>Track 5</span><img
-                        src="images/projector_white.svg"></button></a>
-            <a id="track6" href="pages/track-6.html"><button class="button"><span>Track 6</span><img
-                        src="images/recorder_white.svg"></button></a>
-            <a id="track7" href="pages/track-7.html"><button class="button"><span>Track 7</span><img
-                        src="images/radio_white.svg"></button></a>
-            <a id="track8" href="pages/track-8.html"><button class="button"><span>Track 8</span><img
-                        src="images/mic_white.svg"></button></a>
+                <div class='centre-wrapper' style="flex-direction: column;">
+                    <!-- VideoJS Live Stream -->
+                    <div id="mac_vjs" class="stream">
+                        <video id="Mac_Stream" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+                            controls preload="auto" poster="../images/Tracks_Poster.jpg"
+                            data-setup='{"liveui": true, "autoplay": true, "suppressNotSupportedError": true}'>
+                            <source src="https://bradleyrking.ca:8443/live/Mac/index.m3u8"
+                                type="application/x-mpegURL" />
+                            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to
+                                a
+                                web
+                                browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                    HTML5
+                                    video</a></p>
+                        </video>
+                    </div>
+
+                    <!--Music-->
+                    <div id="music">
+                        <p>Music from <a href="https://matthewcardinal.bandcamp.com/album/pieces-2011-2019"
+                                target="_blank"> "Pieces: 2011-2019"</a> by Matthew Cardinal.</p>
+                    </div>
+
+                    <!-- The Modal -->
+                    <div id="mac_modal">
+                        <p style="font-size: x-large;">Sorry!<br> We're experiencing some technical difficulties!<br>
+                            Please
+                            refresh the page
+                            and try
+                            playing the stream again.</p>
+                    </div>
+
+                    <!--Question 1-->
+                    <div id="mac_q1">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdTfSuSN3L4WybuVLO41teZ972r821SV2rZvvUvgyS9I1AR3A/viewform?embedded=true"
+                            style="width: 622px; height: 310px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+
+                    <!--Question 2-->
+                    <div id="mac_q2">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSeJgf6wzAMeH0G-UuBJBxIPXJsj7FiUCxarj5xWk5EWcEkoAQ/viewform?embedded=true"
+                            style="width: 622px; height: 310px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+
+                    <!--Question 3-->
+                    <div id="mac_q3">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScn0guvecqXw_ROU2er0CaisnYxBy7DIfXoaOpB0hjOR4hoOQ/viewform?embedded=true"
+                            style="width: 622px; height: 310px;" frameborder="0" marginheight="0"
+                            marginwidth="0">Loading…</iframe>
+                    </div>
+
+                    <!-- Scripts -->
+                    <div class="script" id="script_1">
+                        <p>Two theatre seats. 1 shuffles into a seat. They flip through
+                            a program. 2 shuffles past them into the second seat. They
+                            sit for a moment, then stand and take off their coat. The
+                            action takes up a lot of space. They sit and wait.
+                        </p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">These things never start on time, do they.</p><br>
+                        <p class="speech">I mean, I rush and rush and rush to
+                            get here on time, fight to the death
+                            for a parking spot, and shove my way
+                            past a whole row of people - you' d think that the least they could do is start when
+                            they say they're going to start.</p><br>
+                        <p class="speech"> I don't even know what it's about...</p><br>
+                        <p class="speech"> The only reason I'm here is because my fiance is in it.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Congrats.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Thanks.</p><br>
+                        <p class="speech"> I don't know why I said fiance. They
+                            aren't my fiance. We aren't engaged.
+                            I don't know why I said that. I think
+                            I thought it might sound more
+                            interesting.
+                        </p><br>
+                        <p class="speech">It's actually... it's a first date.
+                            Is it weird to ask someone on a date
+                            that's just them in the audience for
+                            your show? That's weird, isn't it.
+                            That's a weird reason to be here.
+                        </p><br>
+                        <p class="centered">(to self)</p>
+                        <p class="speech"> Oh, what are you doing...
+                        </p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Hard to say. I'm here because it's a notch better than going home alone.</p>
+                        <br>
+                        <p class="centered">2</p>
+                        <p class="speech">Oh, that's... that's fun.</p><br>
+                        <p>The lights go down.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">About time.</p>
+                    </div>
+
+                    <div class="script" id="script_2">
+                        <p class="centered">1</p>
+                        <p class="speech">You can't kiss someone while you're wearing a backpack.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">I can.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Well, yeah, I mean you can, like, logistically, but -</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Then what do you mean I / can't</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">I just mean, / like</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">The straps don't cover my mouth or / anything</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">That's not the problem, it's more about your...</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">It's dorky.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">No.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">You think a backpack makes me too dorky to kiss.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">I'm just saying, in big dramatic romances, you don't see someone rushing in
+                            the rain to kiss
+                            their beloved with a packed lunch and a dozen books hanging off their backs.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">And I'm just saying that they probably didn't have as much to carry as I do.
+                            Don't come after
+                            my backpack, it's done nothing wrong.</p>
+                    </div>
+
+                    <div class="script" id="script_3">
+                        <p class="centered">1</p>
+                        <p class="speech">Where am I going from here?</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Just keep going. I'll tell you when. When do you go back?</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Tuesday.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">So soon.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">I know. Kinda looking forward to it.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">That's fair.</p><br>
+                        <p>Long beat.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">How's all that stuff you were telling me about going?</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">All that stuff?</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">You know, you were talking about some weird stuff with like... you know. You
+                            called me last month.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">I call you a lot.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">No you don't.</p><br>
+                        <p>Beat.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">You mean the stuff with like, how I'm... feeling, / and</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Yeah, like, you / were</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Yeah, yeah, I mean...</p>
+                        <p class="speech">Yeah, it's, um.</p>
+                        <p class="speech">It's been a lot better this week. I've had a good week, you being home and
+                            everything warming up and stuff.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">That's good.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Yeah, it's good, it's / good.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Am I turning here?</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">No, a few / more blocks.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Sorry, I cut you off.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Oh, no, that was... that was it I think. Lost my train of thought.</p><br>
+                        <p>Long beat.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Have you been thinking about, you know, like, doing anything... to yourself?
+                        </p><br>
+                        <p>Beat.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Yeah.</p>
+                        <p class="speech">Sometimes. It's not like crisis mode or anything, not like hating my life or
+                            myself or like you know, just.</p>
+                        <p class="speech">Yeah, you know, other stuff.</p><br>
+                        <p>Beat.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Okay.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Don't worry about me, though, / seriously.</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Yeah, no, yeah, okay,</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">I was just, like, really overwhelmed I think when I called you..</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Yeah.</p><br>
+                        <p>Long beat.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Fuck, sorry, I missed the turn-</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Oh, yeah,-</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">It was back a couple,</p><br>
+                        <p class="centered">1</p>
+                        <p class="speech">Okay.</p><br>
+                        <p class="centered">2</p>
+                        <p class="speech">Sorry</p><br>
+                        <p>Long beat.</p><br>
+                    </div>
+
+                    <!--Survey-->
+                    <div id="home_chat" class="chat">
+                        <iframe src="https://minnit.chat/tracksmac?embed&nickname=" style="border:none;"
+                            allowTransparency="true"></iframe>
+                    </div>
+                </div>
+
+                <div class='centre-wrapper'>
+                    <div id='track-buttons'>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer id='footer'>
+                <p>
+                    <a href="pages/credits.html">
+                        Credits
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="../pages/support.html">
+                        Support
+                    </a>
+                </p>
+            </footer>
         </div>
-
-        <div id='footer'><a href="pages/credits.html">
-                <p>Credits</p>
-            </a></div>
     </body>
 
 </html>

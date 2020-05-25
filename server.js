@@ -5,11 +5,23 @@ var bodyParser = require('body-parser');
 const { Server } = require('ws');
 const editJsonFile = require('edit-json-file');
 var session = require('express-session');
+var MemoryStore = require('memorystore')(session);
 var authMiddleware = require('./middleware/auth');
 const dotenv = require('dotenv');
+var cors = require('cors');
 dotenv.config();
 
+const tracks = require('./routes/tracks');
+
 const app = express();
+
+// Allow content from other origins
+app.use(cors());
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 
 // Use to handle post requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,6 +36,9 @@ app.use(
 		secret            : 'secret',
 		resave            : false,
 		saveUninitialized : false,
+		store             : new MemoryStore({
+			checkPeriod : 14400000 // prune expired entries every 4h
+		}),
 		cookie            : { maxAge: 10800000 } // Expires after 3 hours
 	})
 );
@@ -57,7 +72,7 @@ app.post('/auth', function(req, res) {
 			req.session.loggedIn = true;
 			res.redirect('/home');
 		} else {
-			res.send('Uh-oh. Looks like your have the wrong password...');
+			res.sendFile(__dirname + '/public/pages/wrong_password.html');
 		}
 	} else {
 		res.send('Please enter password');
@@ -72,6 +87,9 @@ app.use('/*', authMiddleware.audienceAuth);
 // This needs to come after the initial login so that the index.html does not immediately appear.
 app.use(express.static(__dirname + '/public'));
 
+// This handles track routing.
+app.use('/tracks', tracks);
+
 app.get('/home', function(req, res) {
 	res.sendFile(__dirname + '/public/pages/index.html');
 });
@@ -79,7 +97,14 @@ app.get('/home', function(req, res) {
 // JSON config file requests. This keeps the configuration on the server side.
 app.get('/config', function(req, res) {
 	res.sendFile(__dirname + '/config.json');
-	console.log('Config requested');
+	//console.log('Config requested');
+});
+
+// View Counter Page
+// Master page
+// This requires the second piece of authorization middleware
+app.get('/viewer', authMiddleware.adminAuth, function(req, res) {
+	res.sendFile(__dirname + '/public/pages/viewer.html');
 });
 
 // Master page
@@ -91,26 +116,48 @@ app.get('/master', authMiddleware.adminAuth, function(req, res) {
 
 // Toggle requests from master
 app.post('/master', function(req, res) {
+	var category = req.body.category;
 	var ID = req.body.ID;
+	var status = '';
+
+	console.log('Received request:', category, ',', ID);
 
 	// This edits the config file when requests come from the master page
 	let file = editJsonFile(`${__dirname}/config.json`);
-	if (file.get(ID).display == 'none') {
-		file.set(ID, {
-			display : 'inline-block'
-		});
+	if (file.get(`${category}.${ID}`).display == 'none') {
+		// Set's whether it is turning on or off
+		// 'none' means it's turning on
+		status = 'on';
+
+		// Change CSS display depending on element
+		if (category == 'track_buttons') {
+			file.set(`${category}.${ID}.display`, 'inline-flex');
+		} else {
+			file.set(`${category}.${ID}.display`, 'block');
+		}
 	} else {
-		file.set(ID, {
-			display : 'none'
-		});
+		status = 'off';
+		file.set(`${category}.${ID}.display`, 'none');
 	}
 	file.save();
 
-	// Update main page
-	// Websocket required here.
-	wss.clients.forEach((client) => {
-		client.send(ID);
-	});
+	// Update HTML to show elements with the ID
+	// This is only send to audience members
+	if (Object.keys(clientObj.audience).length > 0) {
+		Object.keys(clientObj.audience).forEach((client) => {
+			clientObj.audience[client].send(ID);
+		});
+	}
+
+	// Similarly, send it back to the master clients
+	// This ensures the toggle state remains the same, even
+	// if multiple users are managing the controls, and it
+	// ensures that the user knows the change succeeded.
+	if (Object.keys(clientObj.master).length > 0) {
+		Object.keys(clientObj.master).forEach((client) => {
+			clientObj.master[client].send(JSON.stringify({ id: ID, status: status }));
+		});
+	}
 
 	res.end();
 });
@@ -126,11 +173,161 @@ app.get('/logout', function(req, res) {
 
 // This takes the server as an argument so that it's listening
 const wss = new Server({ server });
+// Not a great implementation for counting viewers on each track, but
+// it will do in a pinch.
+var COUNTER = [
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+];
+
+// Websocket objects, used to store different types of clients
+// (so we can message specific clients depending on their use)
+// We'll use a very rudimentary ID system
+var clientObj = { audience: {}, viewer: {}, master: {} };
+//var viewerObj = {};
+//var masterObj = {};
+
+// ID variable. This will increment with each new socket
+var wsId = 0;
+
+// We need to keep the signal alive, or else it will close.
+// Empty function to send
+function noop() {}
+
+// This sets the "alive" status of a websocket
+function heartbeat() {
+	this.isAlive = true;
+}
 
 // This listens for and logs connections and disconnections.
 wss.on('connection', (ws) => {
 	console.log('Client connected');
-	ws.on('close', () => console.log('Client disconnected'));
+	console.log('Total Sockets: ', wss.clients.size);
+
+	// Set websocket ID
+	ws.id = wsId;
+
+	// Increment ID
+	wsId++;
+
+	// Set the alive status
+	ws.isAlive = true;
+
+	// If a pong is received from a ping, ensure that the socket is alive
+	// Pong messages are automatically send after a ping
+	// This keeps the socket connection alive. If there is no pong,
+	// the socket will be terminated (see below)
+	ws.on('pong', heartbeat);
+
+	// This does a few things.
+	// Message received from client. Only useful for page view counter
+	// The messages are always a json string with a type (counter, viewer, master)
+	ws.on('message', function incoming(message) {
+		var jsonObj = JSON.parse(message);
+
+		// This comes from the home page and track pages
+		// It's used to keep track of viewers on each page
+		// The jsonObj will include a track number to determine which track
+		// the client is viewing (track 0 is the home page)
+		if (jsonObj.type == 'counter') {
+			// Set the client type
+			ws.type = 'audience';
+
+			// We add this item to reduce the counter at disconnect
+			ws.track = jsonObj.track;
+			COUNTER[ws.track] = COUNTER[ws.track] + 1;
+
+			// Update views page
+			// This only sends to the viewer clients
+			if (Object.keys(clientObj.viewer).length > 0) {
+				Object.keys(clientObj.viewer).forEach((client) => {
+					clientObj.viewer[client].send(COUNTER.toString());
+				});
+			}
+		} else if (jsonObj.type == 'viewer') {
+			// Set the client type
+			ws.type = 'viewer';
+
+			// Send the counter array to initialize the page
+			// This isn't looped (unlike above) because this is an initialization,
+			// not an update
+			ws.send(COUNTER.toString());
+		} else if (jsonObj.type == 'master') {
+			// Set the client type
+			ws.type = 'master';
+		} else {
+			// There's only these types, so any extras should be rejected
+			ws.close();
+		}
+
+		// Now that the client type has been set, save the websocket to the
+		// audienceObj, for quick recalls.
+		clientObj[ws.type][ws.id] = ws;
+		//console.log(clientObj);
+	});
+
+	// Closing function. This removes the entry from the clientObj as well
+	ws.on('close', function() {
+		console.log('Client disconnected');
+
+		// Remove from clientObj
+		//delete clientObj[ws.type][ws.id];
+		console.log('Device ID:', ws.id);
+		console.log('Client Type:', ws.type);
+		console.log('Check Delete Logic: ', ws.hasOwnProperty('id') && ws.hasOwnProperty('type'));
+		if (ws.hasOwnProperty('id') && ws.hasOwnProperty('type')) {
+			delete clientObj[ws.type][ws.id];
+		}
+
+		// Update counter
+		COUNTER[ws.track] = COUNTER[ws.track] - 1;
+		// Update views page
+		if (Object.keys(clientObj.viewer).length > 0) {
+			Object.keys(clientObj.viewer).forEach((client) => {
+				clientObj.viewer[client].send(COUNTER.toString());
+			});
+		}
+	});
+});
+
+// Ping the client every 30 seconds
+const interval = setInterval(function ping() {
+	wss.clients.forEach(function each(ws) {
+		// Terminate hanging sockets.
+		if (ws.isAlive === false) {
+			// Remove from clientObj
+			// Occasionally, one slips through without an ID, so we check first.
+			console.log('Device ID:', ws.id);
+			console.log('Client Type:', ws.type);
+			console.log('Check Delete Logic: ', ws.hasOwnProperty('id') && ws.hasOwnProperty('type'));
+			if (ws.hasOwnProperty('id') && ws.hasOwnProperty('type')) {
+				delete clientObj[ws.type][ws.id];
+				return ws.terminate();
+			} else {
+				return ws.terminate();
+			}
+		}
+		ws.isAlive = false;
+		ws.ping(noop);
+	});
+
+	// Show me how many clients are left
+	console.log('Audience Clients:', Object.keys(clientObj.audience).length);
+	console.log('Master Clients:', Object.keys(clientObj.master).length);
+	console.log('Viewer Clients:', Object.keys(clientObj.viewer).length);
+}, 30000);
+
+// Clear the interval on close (so it quits pinging the clients).
+// This is when the server closes, not the individual sockets
+wss.on('close', function close() {
+	clearInterval(interval);
 });
 
 // This gives a "Page Not Found" Error. It's the last get request so

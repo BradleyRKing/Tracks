@@ -62,8 +62,14 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.update-box {
+  position: absolute;
+  right: 20;
+  top: 20;
+}
+
 /* Button grid */
-.buttonwrapper {
+#buttonWrapper {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -75,5 +81,49 @@ input:checked + .slider:before {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+#pollWrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  width: 50%;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#homeWrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  width: 50%;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  white-space: nowrap;
+}
+
+#playerWrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  width: 50%;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  white-space: nowrap;
 }
 /*# sourceMappingURL=master.css.map */

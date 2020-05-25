@@ -1,26 +1,154 @@
 {
-  "track1": {
-    "display": "inline-block"
+  "track_buttons": {
+    "track1": {
+      "artist": "Anthony",
+      "display": "none",
+      "icon": "tv_white.svg"
+    },
+    "track2": {
+      "artist": "Niuboi",
+      "display": "none",
+      "icon": "radio_white.svg"
+    },
+    "track3": {
+      "artist": "Asia",
+      "display": "none",
+      "icon": "recorder_white.svg"
+    },
+    "track4": {
+      "artist": "Fatmi",
+      "display": "none",
+      "icon": "mic_white.svg"
+    },
+    "track5": {
+      "artist": "Mustafa",
+      "display": "none",
+      "icon": "projector_white.svg"
+    },
+    "track6": {
+      "artist": "Moses",
+      "display": "none",
+      "icon": "controller_white.svg"
+    },
+    "track7": {
+      "artist": "Hayley",
+      "display": "none",
+      "icon": "carousel_white.svg"
+    },
+    "track8": {
+      "artist": "Marguerite",
+      "display": "none",
+      "icon": "polaroid_white.svg"
+    }
   },
-  "track2": {
-    "display": "inline-block"
+  "track_polls": {
+    "poll_q1": {
+      "label": "Anthony Q1",
+      "display": "none"
+    },
+    "poll_q2": {
+      "label": "Anthony Q2",
+      "display": "none"
+    },
+    "poll_q3": {
+      "label": "Anthony Q3",
+      "display": "none"
+    },
+    "poll_q4": {
+      "label": "Anthony Q4",
+      "display": "none"
+    },
+    "poll_q5": {
+      "label": "Niuboi Q1",
+      "display": "none"
+    },
+    "poll_q6": {
+      "label": "Niuboi Q2",
+      "display": "none"
+    },
+    "poll_q7": {
+      "label": "Niuboi Q3",
+      "display": "none"
+    },
+    "poll_q8": {
+      "label": "Niuboi Q4",
+      "display": "none"
+    },
+    "poll_q9": {
+      "label": "Niuboi Q5",
+      "display": "none"
+    }
   },
-  "track3": {
-    "display": "inline-block"
+  "home_page_interactive": {
+    "music": {
+      "label": "Music",
+      "display": "block"
+    },
+    "mac_q1": {
+      "label": "Mac Q1",
+      "display": "none"
+    },
+    "mac_q2": {
+      "label": "Mac Q2",
+      "display": "none"
+    },
+    "mac_q3": {
+      "label": "Mac Q3",
+      "display": "none"
+    },
+    "script_1": {
+      "label": "Script 1",
+      "display": "none"
+    },
+    "script_2": {
+      "label": "Script 2",
+      "display": "none"
+    },
+    "script_3": {
+      "label": "Script 3",
+      "display": "none"
+    },
+    "home_chat": {
+      "label": "Home Chat",
+      "display": "none"
+    }
   },
-  "track4": {
-    "display": "inline-block"
-  },
-  "track5": {
-    "display": "inline-block"
-  },
-  "track6": {
-    "display": "inline-block"
-  },
-  "track7": {
-    "display": "inline-block"
-  },
-  "track8": {
-    "display": "inline-block"
+  "modals": {
+    "mac_modal": {
+      "label": "Mac Modal",
+      "display": "none"
+    },
+    "anthony_modal": {
+      "label": "Anthony Modal",
+      "display": "none"
+    },
+    "niuboi_modal": {
+      "label": "Niuboi Modal",
+      "display": "none"
+    },
+    "asia_modal": {
+      "label": "Asia Modal",
+      "display": "none"
+    },
+    "fatmi_modal": {
+      "label": "Fatmi Modal",
+      "display": "none"
+    },
+    "mustafa_modal": {
+      "label": "Mustafa Modal",
+      "display": "none"
+    },
+    "moses_modal": {
+      "label": "Moses Modal",
+      "display": "none"
+    },
+    "hayley_modal": {
+      "label": "Hayley Modal",
+      "display": "none"
+    },
+    "marguerite_modal": {
+      "label": "Marguerite Modal",
+      "display": "none"
+    }
   }
 }

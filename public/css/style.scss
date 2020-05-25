@@ -2,6 +2,7 @@
 $base-colour: #8f63aa !default;
 $neon-dark: #8f63aa !default;
 $neon-light: #ab65da !default;
+$max-width: 100%;
 
 @import url('https://fontlibrary.org/face/beon'); // BeonRegular
 @import url('https://fonts.googleapis.com/css?family=Bungee+Outline|Bungee+Hairline'); // Bungee Outline
@@ -13,10 +14,17 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 7em;
     font-family: 'BeonRegular'; //'Bungee Outline';
     margin: 0;
-    padding: 0
+    padding: 0;
+
+    @media only screen and (min-width: 600px) {
+        font-size: 7em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        font-size: 5em;
+    }
 }
 
 h2 {
@@ -35,6 +43,10 @@ p {
     padding: 0
 }
 
+form {
+    display: inline-flex;
+}
+
 u {
     text-decoration: underline;
     -webkit-text-decoration-color: $base-colour;
@@ -42,32 +54,145 @@ u {
     text-decoration-color: $base-colour;
 }
 
-audio {
-    text-align: center;
+table {
+    display: block;
+    margin: 10px auto;
+    font-family: 'Bungee Hairline';
+
+    td,
+    th {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid grey;
+    }
 }
 
 iframe {
     display: block;
-    margin: 50px auto;
+    margin: 10px auto;
     color: black;
+    width: 560px;
+    max-width: $max-width;
+    height: 340px;
 }
 
-span {
-    white-space: nowrap;
+.chat {
+    iframe {
+        height: 300px;
+        margin: 0px auto 10px auto;
+    }
 }
+
+.stream {
+    display: flex;
+    margin: 25px auto;
+    color: black;
+    width: 560px;
+    max-width: $max-width;
+}
+
+.script {
+    display: block;
+    margin: 25px auto;
+    padding: 5px;
+    color: white;
+    width: 560px;
+    max-width: $max-width;
+    height: 340px;
+    border: 1px solid grey;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    p {
+        font-family: "Courier New", Courier, monospace;
+        text-align: left;
+    }
+
+    .centered {
+        text-align: center;
+    }
+
+    .speech {
+        margin: 0px 50px;
+    }
+}
+
+//span {
+//    white-space: nowrap;
+//}
 
 .centre-wrapper {
     display: flex;
     justify-content: center;
     align-content: center;
+    padding: 0px;
+}
+
+.credits {
+    p {
+        font-family: "Courier New", Courier, monospace;
+        text-align: left;
+        ;
+    }
+
+    div {
+        margin: 15px auto;
+        overflow: auto;
+        width: 50%;
+        min-width: 400px;
+    }
+
+    .left {
+        margin-right: 10px;
+        margin-bottom: 0px;
+        float: left;
+        width: 200px;
+        height: 200px;
+    }
+
+    .right {
+        margin-left: 10px;
+        margin-bottom: 0px;
+        float: right;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+
+    img {
+        max-height: 100px;
+        min-width: 0; // Needed for Chrome
+        object-fit: contain;
+    }
+}
+
+/* This will keep the footer at the bottom */
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 5.5rem;
+    /* Footer height */
 }
 
 #footer {
     position: absolute;
-    text-align: center;
     bottom: 0;
     width: 100%;
-    height: 30px;
+    max-width: $max-width;
+    height: 3.5rem;
+    /* Footer height */
+    color: white;
+    text-align: center;
+    padding-top: 1.5rem;
 }
 
 a {
@@ -79,13 +204,13 @@ a {
 
 // Buttons
 @mixin button($base-colour) {
-    button {
+    .button {
         background-color: $base-colour;
         font-family: 'BeonRegular';
         color: white;
         padding: 0px 32px;
         text-align: center;
-        display: inline-block;
+        display: inline-flex;
         font-size: 16px;
         margin: 4px 20px;
         //border-radius: 5px;
@@ -94,7 +219,7 @@ a {
 
         span {
             cursor: pointer;
-            display: inline-block;
+            display: inline-flex;
             position: relative;
             transition: 0.5s;
             margin: 16px 0px;
@@ -111,6 +236,7 @@ a {
                 vertical-align: middle;
             }
         }
+
 
         &:hover span {
             background-color: $base-colour;
@@ -148,6 +274,11 @@ a {
     }
 }
 
+// Requested to remove that mixin, and make it a static glow
+@mixin static_glow($neon-dark, $neon-light, $parent) {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $neon-dark, 0 0 40px $neon-dark, 0 0 50px $neon-dark, 0 0 60px $neon-dark, 0 0 70px $neon-dark;
+}
+
 // Classes for themes
 .default {
     $parent: 'default';
@@ -159,62 +290,67 @@ a {
     h1 {
         @include keyframes($neon-dark, $neon-light, $parent);
         @include glow($parent);
+        //@include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Marg
-.track-1 {
-    $parent: 'track-1';
+.track-8 {
+    $parent: 'track-8';
     $base-colour: #1b4254;
     $neon-dark: #1b4254;
     $neon-light: #3e7a96;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        // @include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Anthony
-.track-2 {
-    $parent: 'track-2';
+.track-1 {
+    $parent: 'track-1';
     $base-colour: #559f91;
     $neon-dark: #559f91;
     $neon-light: #73d6c4;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Moses
-.track-3 {
-    $parent: 'track-3';
+.track-6 {
+    $parent: 'track-6';
     $base-colour: #7e83a5;
     $neon-dark: #7e83a5;
     $neon-light: #b4bbeb;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Hayley
-.track-4 {
-    $parent: 'track-4';
+.track-7 {
+    $parent: 'track-7';
     $base-colour: #51a1af;
     $neon-dark: #51a1af;
     $neon-light: #6ad5e7;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
@@ -227,49 +363,147 @@ a {
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        // @include keyframes($neon-dark, $neon-light, $parent);
+        // @include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Asia
-.track-6 {
-    $parent: 'track-6';
+.track-3 {
+    $parent: 'track-3';
     $base-colour: #d2776c;
     $neon-dark: #d2776c;
     $neon-light: #fd978b;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Niuboi
-.track-7 {
-    $parent: 'track-7';
+.track-2 {
+    $parent: 'track-2';
     $base-colour: #b44f1f;
     $neon-dark: #b44f1f;
     $neon-light: #e2652b;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
 }
 
 // Fatmi
-.track-8 {
-    $parent: 'track-8';
+.track-4 {
+    $parent: 'track-4';
     $base-colour: #6d2f28;
     $neon-dark: #6d2f28;
     $neon-light: #a7493f;
     @include button($base-colour);
 
     h1 {
-        @include keyframes($neon-dark, $neon-light, $parent);
-        @include glow($parent);
+        //@include keyframes($neon-dark, $neon-light, $parent);
+        //@include glow($parent);
+        @include static_glow($neon-dark, $neon-light, $parent);
     }
+}
+
+// Everything modals
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 10;
+    /* Sit on top */
+    padding-top: 300px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: black;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 1.0s;
+    animation-name: animatetop;
+    animation-duration: 1.0s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: $base-colour;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: $base-colour;
+    color: white;
 }

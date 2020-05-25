@@ -2,8 +2,11 @@
 // We wait for the window to load so that there's no flickering
 $(window).on('load', function() {
 	$.getJSON('/config', function(json) {
-		for (var key in json) {
-			$('#' + key).css('display', json[key].display);
+		// Load buttons
+		for (var category in json) {
+			for (var key in json[category]) {
+				$('#' + key).css('display', json[category][key].display);
+			}
 		}
 	});
 	// Fade in when the body has been updated.
