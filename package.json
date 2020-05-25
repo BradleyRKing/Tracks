@@ -28,6 +28,7 @@
     "express-basic-auth": "^1.2.0",
     "express-session": "^1.17.1",
     "jquery": "^3.5.0",
+    "memorystore": "^1.6.2",
     "path": "^0.12.7",
     "utf-8-validate": "^5.0.2",
     "video.js": "^7.7.6",

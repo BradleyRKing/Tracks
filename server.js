@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 const { Server } = require('ws');
 const editJsonFile = require('edit-json-file');
 var session = require('express-session');
+var MemoryStore = require('memorystore')(session);
 var authMiddleware = require('./middleware/auth');
 const dotenv = require('dotenv');
 var cors = require('cors');
@@ -35,6 +36,9 @@ app.use(
 		secret            : 'secret',
 		resave            : false,
 		saveUninitialized : false,
+		store             : new MemoryStore({
+			checkPeriod : 14400000 // prune expired entries every 4h
+		}),
 		cookie            : { maxAge: 10800000 } // Expires after 3 hours
 	})
 );
